@@ -6,7 +6,7 @@ const Logo = () => (
     <Container className="py-2">
       <Nav className="mx-auto">
         <Nav.Link>
-          <Image src="/images/kalo-stems-logo.png" fluid className="d-block mx-auto" />
+          <Image src="/images/kalo-stems-logo.png" fluid className="d-block mx-auto" width={400} />
         </Nav.Link>
       </Nav>
     </Container>
