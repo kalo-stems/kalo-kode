@@ -13,7 +13,7 @@ const NavBar = () => {
   }), []);
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light">
       <Container className="justify-content-left">
         <Nav className="mx-auto">
           <Nav.Item className="active border-3">Our Mission</Nav.Item>
