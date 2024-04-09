@@ -1,5 +1,3 @@
-import { Selector } from 'testcafe';
-
 class StudentInfo {
   constructor() {
     this.skills = [];
@@ -31,5 +29,3 @@ class StudentInfo {
 }
 
 export default StudentInfo;
-
-
