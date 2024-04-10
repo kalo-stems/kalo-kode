@@ -12,7 +12,6 @@ class StudentInfo {
     this.major = '';
     this.skills = [];
     this.awards = [];
-    this.dob = '';
     this.github = '';
   }
 
