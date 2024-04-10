@@ -1,9 +1,14 @@
 /* Use Open Sans as the default sans serif font. */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Source+Code+Pro:300,400,500,700");
 
+#logo {
+  padding-bottom: 0rem;
+}
+
 .nav-item {
   padding: 0rem 1rem 0rem 1rem;
   color: white;
+  font-size: larger;
 }
 
 #login-dropdown {
@@ -21,6 +26,15 @@
  */
 body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
+}
+
+#background {
+  background-size: cover;
+  background-position: center ;
+}
+
+#motto {
+  color: darkgreen;
 }
 
 footer {

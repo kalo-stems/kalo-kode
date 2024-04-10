@@ -6,7 +6,7 @@ const Logo = () => (
     <Container>
       <Nav className="mx-auto">
         <Nav.Link>
-          <Image src="/images/kalo-stems-logo.png" fluid className="d-block mx-auto" width={400} />
+          <Image src="/images/logo.png" fluid className="d-block mx-auto" width={400} id="logo" />
         </Nav.Link>
       </Nav>
     </Container>
