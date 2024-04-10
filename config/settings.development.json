@@ -9,5 +9,9 @@
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  ],
+  "defaultCompanyData": [
+    {"name": "KaloStems", "logo:": "logo", "address": "Aloha Street", "email": "email.com", "links": "kalostem.com", "description": "this is a description"
+    }
   ]
 }
