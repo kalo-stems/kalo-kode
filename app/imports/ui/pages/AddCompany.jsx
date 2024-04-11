@@ -7,7 +7,7 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Companies } from '../../api/company/Company';
 
-// Create a schema to specify the structure of the data to appear in the form.
+// Create a schema to specify the structure of the companyData to appear in the form.
 const formSchema = new SimpleSchema({
   name: String,
   logo: String,
@@ -19,12 +19,12 @@ const formSchema = new SimpleSchema({
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
-/* Renders the AddStuff page for adding a document. */
-const AddStuff = () => {
+/* Renders the AddCompany page for adding a document. */
+const AddCompany = () => {
 
-  // On submit, insert the data.
-  const submit = (data, formRef) => {
-    const { name, logo, address, email, links, description } = data;
+  // On submit, insert the companyData.
+  const submit = (companyData, formRef) => {
+    const { name, logo, address, email, links, description } = companyData;
     const owner = Meteor.user().username;
     Companies.collection.insert(
       { name, logo, address, email, links, description, owner },
@@ -46,12 +46,12 @@ const AddStuff = () => {
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center"><h2>Add Company Profile</h2></Col>
-          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
+          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={companyData => submit(companyData, fRef)}>
             <Card>
               <Card.Body>
                 <TextField name="logo" />
                 <TextField name="name" />
-                <TextField name="location" />
+                <TextField name="address" />
                 <TextField name="email" />
                 <TextField name="links" />
                 <LongTextField name="description" />
@@ -66,4 +66,4 @@ const AddStuff = () => {
   );
 };
 
-export default AddStuff;
+export default AddCompany;

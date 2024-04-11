@@ -11,7 +11,7 @@
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
   "defaultCompanyData": [
-    {"name": "KaloStems", "logo:": "logo", "address": "Aloha Street", "email": "email.com", "links": "kalostem.com", "description": "this is a description"
+    {"name": "KaloStems", "logo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fphilipmjohnson&psig=AOvVaw0AUW32mpADjN5LMNZkwDUs&ust=1712869514546000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCIjSranGuIUDFQAAAAAdAAAAABAE", "address": "Aloha Street", "email": "email.com", "links": "kalostem.com", "description": "this is a description", "owner": "john@foo.com"
     }
   ]
 }

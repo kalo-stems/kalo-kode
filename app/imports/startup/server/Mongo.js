@@ -28,6 +28,6 @@ const addCompany = (companyData) => {
 if (Companies.collection.find().count() === 0) {
   if (Meteor.settings.defaultCompanyData) {
     console.log('Creating default data.');
-    Meteor.settings.defaultData.forEach(companyData => addCompany(companyData));
+    Meteor.settings.defaultCompanyData.forEach(companyData => addCompany(companyData));
   }
 }
