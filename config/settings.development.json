@@ -3,11 +3,32 @@
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" }
   ],
-
-  "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  "defaultData": [],
+  "defaultCompanyData": [
+    {
+      "name": "KaloStems",
+      "logo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fphilipmjohnson&psig=AOvVaw0AUW32mpADjN5LMNZkwDUs&ust=1712869514546000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCIjSranGuIUDFQAAAAAdAAAAABAE",
+      "address": "Aloha Street",
+      "email": "email.com",
+      "links": "kalostem.com",
+      "description": "this is a description",
+      "owner": "john@foo.com"
+    }
+  ],
+  "defaultStudentData": [
+    {
+      "phoneNumber": "123-456-7890",
+      "emailAddress": "student@foo.com",
+      "gradDate": "2024-05-15",
+      "achievements": "Top student award",
+      "linkedIn": "linkedin.com/student",
+      "bioDescription": "Passionate about coding and technology",
+      "major": "Computer Science",
+      "skills": "JavaScript, Python, React",
+      "awards": "Dean's List",
+      "dob": "2000-01-01",
+      "github": "github.com/student"
+    }
   ]
 }
+
