@@ -8,13 +8,13 @@ const Footer = () => (
       <Col className="text-center">
         Kalo Stems
         {' '}
-        <br/>
+        <br />
         University of Hawaii
-        <br/>
+        <br />
         Honolulu, HI 96822
         {' '}
-        <br/>
-        <a style={{ color: 'white' }} href="https://kalo-stems.github.io/">https://kalo-stems.github.io/</a>
+        <br />
+        <a style={{ color: 'green' }} href="https://kalo-stems.github.io/">https://kalo-stems.github.io/</a>
       </Col>
     </Container>
   </footer>
