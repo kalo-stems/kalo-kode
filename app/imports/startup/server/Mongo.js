@@ -24,7 +24,7 @@ const addCompany = (companyData) => {
   Companies.collection.insert(companyData);
 };
 
-// Initialize the StuffsCollection if empty.
+// Initialize the CompaniesCollection if empty.
 if (Companies.collection.find().count() === 0) {
   if (Meteor.settings.defaultCompanyData) {
     console.log('Creating default data.');
