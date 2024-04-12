@@ -1,25 +1,23 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row, Table } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
+import { Col, Container, Row, Table } from 'react-bootstrap';
 import { Jobs } from '../../api/job/Jobs';
-import JobItem from '../components/JobsItem';
+import JobItemAdmin from '../components/JobsItemAdmin';
 import LoadingSpinner from '../components/LoadingSpinner';
 
-/* Renders a table containing all of the Job documents. Use <Job Item> to render each row. */
-const ListJobs = () => {
+/* Renders a table containing all of the Job documents. Use <JobItemAdmin> to render each row. */
+const ListJobAdmin = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, jobs } = useTracker(() => {
-    // Note that this subscription will get cleaned up
-    // when your component is unmounted or deps change.
+  const { jobs, ready } = useTracker(() => {
     // Get access to Job documents.
-    const subscription = Meteor.subscribe(Jobs.userPublicationName);
+    const subscription = Meteor.subscribe(Jobs.adminPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Job documents
-    const jobItems = Jobs.collection.find({}).fetch();
+    const items = Jobs.collection.find({}).fetch();
     return {
-      jobs: jobItems,
+      jobs: items,
       ready: rdy,
     };
   }, []);
@@ -27,20 +25,18 @@ const ListJobs = () => {
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col md={7}>
-          <Col className="text-center">
-            <h2>List Jobs</h2>
-          </Col>
+          <Col className="text-center"><h2>List Jobs (Admin)</h2></Col>
           <Table striped bordered hover>
             <thead>
               <tr>
                 <th>Name</th>
                 <th>Quantity</th>
                 <th>Condition</th>
-                <th>Edit</th>
+                <th>Owner</th>
               </tr>
             </thead>
             <tbody>
-              {jobs.map((job) => <JobItem key={job._id} job={job} />)}
+              {jobs.map((job) => <JobItemAdmin key={job._id} job={job} />)}
             </tbody>
           </Table>
         </Col>
@@ -49,4 +45,4 @@ const ListJobs = () => {
   ) : <LoadingSpinner />);
 };
 
-export default ListJobs;
+export default ListJobAdmin;
