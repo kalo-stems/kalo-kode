@@ -16,8 +16,8 @@ const NavBar = () => {
     <Navbar bg="light">
       <Container className="justify-content-left">
         <Nav className="mx-auto">
-          <Nav.Item className="active border-3">Our Mission</Nav.Item>
-          <Nav.Item className="active">About Us</Nav.Item>
+          <Nav.Link className="active border-3" href="#a">Our Mission</Nav.Link>
+          <Nav.Link className="active" href="#a">About Us</Nav.Link>
         </Nav>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
