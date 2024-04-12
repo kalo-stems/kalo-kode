@@ -9,5 +9,12 @@
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  ],
+
+  "defaultJobs": [
+    { "title": "Banana", "description": "a", "requirements": "admin@foo.com", "wage": "1", "company": "good", "deadline": "1/2/23", "seats": "1"},
+    { "title": "Banana", "description": "a", "requirements": "admin@foo.com", "wage": "2", "company": "good", "deadline": "2/3/24", "seats": "2"},
+    { "title": "Banana", "description": "a", "requirements": "admin@foo.com", "wage": "3", "company": "good", "deadline": "3/4/25", "seats": "3"},
+    { "title": "Banana", "description": "a", "requirements": "admin@foo.com", "wage": "4", "company": "good", "deadline": "4/5/26", "seats": "4"}
   ]
 }

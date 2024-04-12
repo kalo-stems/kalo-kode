@@ -33,10 +33,13 @@ const ListJobs = () => {
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Condition</th>
-                <th>Edit</th>
+                <th>Title</th>
+                <th>Company</th>
+                <th>Description</th>
+                <th>Requirements</th>
+                <th>Wage</th>
+                <th>Seats</th>
+                <th>Deadline</th>
               </tr>
             </thead>
             <tbody>
