@@ -3,7 +3,6 @@ import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row, Table } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Jobs } from '../../api/job/Jobs';
-import JobItem from '../components/JobsItem';
 import LoadingSpinner from '../components/LoadingSpinner';
 import JobsItem from '../components/JobsItem';
 
@@ -41,6 +40,7 @@ const ListJobs = () => {
                 <th>Wage</th>
                 <th>Seats</th>
                 <th>Deadline</th>
+                <th>Apply</th>
               </tr>
             </thead>
             <tbody>

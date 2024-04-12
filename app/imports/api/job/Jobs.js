@@ -15,9 +15,9 @@ class JobsCollection {
       title: String,
       description: String,
       requirements: String,
-      wage: Number,
+      wage: String,
       company: String,
-      deadline: Date,
+      deadline: String,
       seats: Number,
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.

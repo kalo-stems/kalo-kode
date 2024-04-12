@@ -9,11 +9,11 @@ const JobItemAdmin = ({ job }) => (
     <td>{job.company}</td>
     <td>{job.description}</td>
     <td>{job.requirements}</td>
-    <td>{job.wage}</td>
+    <td>${job.wage}</td>
     <td>{job.seats}</td>
     <td>{job.deadline}</td>
     <td>
-      <Link to={`/edit/${job._id}`}>Edit</Link>
+      <Link to={`/edit/${job._id}`}>Apply</Link>
     </td>
   </tr>
 );
@@ -24,11 +24,11 @@ JobItemAdmin.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
     requirements: PropTypes.string,
-    wage: PropTypes.number,
+    wage: PropTypes.string,
     company: PropTypes.string,
-    deadline: PropTypes.instanceOf(Date),
+    deadline: PropTypes.string,
     seats: PropTypes.number,
-    _id: PropTypes.string,
+    // _id: PropTypes.string,
   }).isRequired,
 };
 

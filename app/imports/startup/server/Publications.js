@@ -24,8 +24,8 @@ Meteor.publish(Stuffs.adminPublicationName, function () {
 
 Meteor.publish(Jobs.userPublicationName, function () {
   if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Jobs.collection.find({ owner: username });
+    // const username = Meteor.users.findOne(this.userId).username;
+    return Jobs.collection.find();
   }
   return this.ready();
 });

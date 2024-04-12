@@ -3,9 +3,8 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Col, Container, Row, Table } from 'react-bootstrap';
 import { Jobs } from '../../api/job/Jobs';
-import JobItemAdmin from '../components/JobsItemAdmin';
-import LoadingSpinner from '../components/LoadingSpinner';
 import JobsItemAdmin from '../components/JobsItemAdmin';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 /* Renders a table containing all of the Job documents. Use <JobItemAdmin> to render each row. */
 const ListJobAdmin = () => {
@@ -37,6 +36,7 @@ const ListJobAdmin = () => {
                 <th>Wage</th>
                 <th>Seats</th>
                 <th>Deadline</th>
+                <th>Apply</th>
               </tr>
             </thead>
             <tbody>
