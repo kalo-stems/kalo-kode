@@ -5,6 +5,7 @@ import { Col, Container, Row, Table } from 'react-bootstrap';
 import { Jobs } from '../../api/job/Jobs';
 import JobItemAdmin from '../components/JobsItemAdmin';
 import LoadingSpinner from '../components/LoadingSpinner';
+import JobsItemAdmin from '../components/JobsItemAdmin';
 
 /* Renders a table containing all of the Job documents. Use <JobItemAdmin> to render each row. */
 const ListJobAdmin = () => {
@@ -15,28 +16,31 @@ const ListJobAdmin = () => {
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Job documents
-    const items = Jobs.collection.find({}).fetch();
+    const jobItems = Jobs.collection.find({}).fetch();
     return {
-      jobs: items,
+      jobs: jobItems,
       ready: rdy,
     };
   }, []);
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col md={7}>
+        <Col>
           <Col className="text-center"><h2>List Jobs (Admin)</h2></Col>
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Condition</th>
-                <th>Owner</th>
+                <th>Title</th>
+                <th>Company</th>
+                <th>Description</th>
+                <th>Requirements</th>
+                <th>Wage</th>
+                <th>Seats</th>
+                <th>Deadline</th>
               </tr>
             </thead>
             <tbody>
-              {jobs.map((job) => <JobItemAdmin key={job._id} job={job} />)}
+              {jobs.map((job) => <JobsItemAdmin key={job._id} job={job} />)}
             </tbody>
           </Table>
         </Col>
