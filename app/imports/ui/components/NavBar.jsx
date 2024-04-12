@@ -13,11 +13,12 @@ const NavBar = () => {
   }), []);
 
   return (
-    <Navbar bg="light" expand="lg">
-      <Container>
-        <Navbar.Brand as={NavLink} to="/">
-          <h2>Kalo Stems</h2>
-        </Navbar.Brand>
+    <Navbar bg="light">
+      <Container className="justify-content-left">
+        <Nav className="mx-auto">
+          <Nav.Item className="active border-3">Our Mission</Nav.Item>
+          <Nav.Item className="active">About Us</Nav.Item>
+        </Nav>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">

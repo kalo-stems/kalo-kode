@@ -6,15 +6,17 @@ const Footer = () => (
   <footer className="mt-auto py-3 bg-light">
     <Container>
       <Col className="text-center">
-        Kalo Stems
+        Natalie Dang, Emily Hsu, Samantha Kocher, Roma Malasarte, Rina Ogino, Jaira Pader
+        <br />
+        Department of Information and Computer Sciences
         {' '}
-        <br/>
+        <br />
         University of Hawaii
-        <br/>
-        Honolulu, HI 96822
+        <br />
+        ndang562@hawaii.edu, ehsu@hawaii.edu, kochers@hawaii.edu, romaamor@hawaii.edu, rin4@hawaii.edu, jairabp@hawaii.edu
         {' '}
-        <br/>
-        <a style={{ color: 'white' }} href="https://kalo-stems.github.io/">https://kalo-stems.github.io/</a>
+        <br />
+        <a style={{ color: 'green' }} href="https://kalo-stems.github.io/">https://kalo-stems.github.io/</a>
       </Col>
     </Container>
   </footer>
