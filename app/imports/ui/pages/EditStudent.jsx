@@ -32,29 +32,47 @@ const EditStudent = () => {
   // console.log('EditStudent', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { phoneNumber, major, email, skills, gradDate, awards, description, linkedIn, gitHub } = data;
-    Students.collection.update(_id, { $set: { phoneNumber, major, email, skills, gradDate, awards, description, linkedIn, gitHub } }, (error) => (error ?
+    const { email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } = data;
+    Students.collection.update(_id, { $set: { email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } }, (error) => (error ?
       swal('Error', error.message, 'error') :
-      swal('Success', 'Information updated successfully', 'success')));
+      swal('Success', 'Item updated successfully', 'success')));
   };
 
   return ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col xs={5}>
-          <Col className="text-center"><h2>Edit My Information</h2></Col>
+        <Col xs={10}>
+          <Col className="text-center"><h2>Edit Student Profile</h2></Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
               <Card.Body>
-                <TextField name="phoneNumber" />
-                <TextField name="major" />
-                <TextField name="email" />
+                <Row>
+                  <Col>
+                    <TextField name="email" />
+                  </Col>
+                  <Col>
+                    <TextField name="phoneNumber" />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <TextField name="major" />
+                  </Col>
+                  <Col>
+                    <TextField name="graduationDate" />
+                  </Col>
+                </Row>
                 <TextField name="skills" />
-                <TextField name="gradDate" />
                 <TextField name="awards" />
                 <LongTextField name="description" />
-                <LongTextField name="linkedIn" />
-                <LongTextField name="gitHub" />
+                <Row>
+                  <Col>
+                    <TextField name="linkedIn" />
+                  </Col>
+                  <Col>
+                    <TextField name="gitHub" />
+                  </Col>
+                </Row>
                 <SubmitField value="Submit" />
                 <ErrorsField />
               </Card.Body>
