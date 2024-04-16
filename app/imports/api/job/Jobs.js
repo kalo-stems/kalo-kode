@@ -1,3 +1,4 @@
+// job.js
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
@@ -16,6 +17,22 @@ class JobsCollection {
       acceptedApplications: Number,
       steps: Array, // Array to store steps
       'steps.$': String, // Each step is a string
+      // Add user and company contact information to the schema
+      user: {
+        type: new SimpleSchema({
+          name: String,
+          email: String,
+          phone: String,
+        }),
+      },
+      company: {
+        type: new SimpleSchema({
+          name: String,
+          address: String,
+          phone: String,
+          email: String,
+        }),
+      },
     });
     this.collection.attachSchema(this.schema);
     this.userPublicationName = `${this.name}.publication.user`;
