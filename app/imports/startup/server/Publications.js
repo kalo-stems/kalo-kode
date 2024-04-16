@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
-import { Students } from '../../api/student/Student';
+import { Jobs } from '../../api/job/Jobs';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise, publish nothing.
@@ -22,21 +22,19 @@ Meteor.publish(Stuffs.adminPublicationName, function () {
   return this.ready();
 });
 
-// User-level publication.
-// If logged in, then publish documents owned by this user. Otherwise, publish nothing.
-Meteor.publish(Students.userPublicationName, function () {
+Meteor.publish(Jobs.userPublicationName, function () {
   if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Students.collection.find({ owner: username });
+    // const username = Meteor.users.findOne(this.userId).username;
+    return Jobs.collection.find();
   }
   return this.ready();
 });
 
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise, publish nothing.
-Meteor.publish(Students.adminPublicationName, function () {
+Meteor.publish(Jobs.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Students.collection.find();
+    return Jobs.collection.find();
   }
   return this.ready();
 });

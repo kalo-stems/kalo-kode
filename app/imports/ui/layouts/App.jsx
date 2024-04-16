@@ -18,6 +18,11 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import Logo from '../components/Logo';
 import AddStudent from '../pages/AddStudent';
 import EditStudent from '../pages/EditStudent';
+import AddCompany from '../pages/AddCompany';
+import EditCompany from '../pages/EditCompany';
+import ListJobs from '../pages/ListJobs';
+import ListStudent from '../pages/ListStudent';
+import ListCompany from '../pages/ListCompany';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -39,8 +44,13 @@ const App = () => {
           <Route path="/signout" element={<SignOut />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/list" element={<ProtectedRoute><ListStuff /></ProtectedRoute>} />
-          <Route path="/add" element={<ProtectedRoute><AddStudent /></ProtectedRoute>} />
+          <Route path="/add-student" element={<ProtectedRoute><AddStudent /></ProtectedRoute>} />
+          <Route path="/list-student" element={<ProtectedRoute><ListStudent /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditStudent /></ProtectedRoute>} />
+          <Route path="/add-company" element={<ProtectedRoute><AddCompany /></ProtectedRoute>} />
+          <Route path="/edit/:_id" element={<ProtectedRoute><EditCompany /></ProtectedRoute>} />
+          <Route path="/list-company" element={<ProtectedRoute><ListCompany /></ProtectedRoute>} />
+          <Route path="/list-jobs" element={<ProtectedRoute><ListJobs /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
