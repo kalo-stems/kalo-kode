@@ -1,8 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
-import { Companies } from '../../api/company/Company';
-import { Jobs } from '../../api/job/Jobs';
+import { Students } from '../../api/student/Student';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise, publish nothing.
@@ -10,22 +9,6 @@ Meteor.publish(Stuffs.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
     return Stuffs.collection.find({ owner: username });
-  }
-  return this.ready();
-});
-
-Meteor.publish(Companies.userPublicationName, function () {
-  if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Companies.collection.find({ owner: username });
-  }
-  return this.ready();
-});
-
-Meteor.publish(Jobs.userPublicationName, function () {
-  if (this.userId) {
-    // const username = Meteor.users.findOne(this.userId).username;
-    return Jobs.collection.find();
   }
   return this.ready();
 });
@@ -39,16 +22,21 @@ Meteor.publish(Stuffs.adminPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(Companies.adminPublicationName, function () {
-  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Companies.collection.find();
+// User-level publication.
+// If logged in, then publish documents owned by this user. Otherwise, publish nothing.
+Meteor.publish(Students.userPublicationName, function () {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Students.collection.find({ owner: username });
   }
   return this.ready();
 });
 
-Meteor.publish(Jobs.adminPublicationName, function () {
+// Admin-level publication.
+// If logged in and with admin role, then publish all documents from all users. Otherwise, publish nothing.
+Meteor.publish(Students.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Jobs.collection.find();
+    return Students.collection.find();
   }
   return this.ready();
 });

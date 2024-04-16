@@ -16,15 +16,15 @@ const NavBar = () => {
     <Navbar bg="light">
       <Container className="justify-content-left">
         <Nav className="mx-auto">
-          <Nav.Link className="active border-3" href="#a">Our Mission</Nav.Link>
-          <Nav.Link className="active" href="#a">About Us</Nav.Link>
+          <Nav.Item className="active border-3">Our Mission</Nav.Item>
+          <Nav.Item className="active">About Us</Nav.Item>
         </Nav>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">
             {currentUser ? ([
-              <Nav.Link id="add-stuff-nav" as={NavLink} to="/add" key="add">Add Company Profile</Nav.Link>,
-              <Nav.Link id="list-stuff-nav" as={NavLink} to="/list" key="list">List Jobs</Nav.Link>,
+              <Nav.Link id="add-stuff-nav" as={NavLink} to="/add" key="add">Add Student Information</Nav.Link>,
+              <Nav.Link id="list-stuff-nav" as={NavLink} to="/list" key="list">List Student Information</Nav.Link>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
