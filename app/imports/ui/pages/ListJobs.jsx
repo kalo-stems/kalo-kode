@@ -5,6 +5,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { Jobs } from '../../api/job/Jobs';
 import LoadingSpinner from '../components/LoadingSpinner';
 import JobsItem from '../components/JobsItem';
+import Search from './Search';
 
 /* Renders a table containing all of the Job documents. Use <Job Item> to render each row. */
 const ListJobs = () => {
@@ -29,6 +30,7 @@ const ListJobs = () => {
         <Col>
           <Col className="text-center">
             <h2>List Jobs</h2>
+            <Search />
           </Col>
           <Table striped bordered hover>
             <thead>
