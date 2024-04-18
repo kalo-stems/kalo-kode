@@ -16,15 +16,15 @@ const NavBar = () => {
     <Navbar bg="light" expand="lg">
       <Container className="justify-content-left">
         <Nav className="mx-auto">
-          <Nav.Item className="active border-3">Our Mission</Nav.Item>
-          <Nav.Item className="active">About Us</Nav.Item>
+          <Nav.Link className="active border-3">Our Mission</Nav.Link>
+          <Nav.Link className="active">About Us</Nav.Link>
         </Nav>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">
             {currentUser ? ([
-              <Nav.Link id="add-stuff-nav" as={NavLink} to="/add-student" key="add">Add Student Information</Nav.Link>,
-              <Nav.Link id="list-stuff-nav" as={NavLink} to="/list-student" key="list">List Student Information</Nav.Link>,
+              <Nav.Link id="add-stuff-nav" as={NavLink} to="/add-student" key="add">Add Student Profile</Nav.Link>,
+              <Nav.Link id="list-stuff-nav" as={NavLink} to="/list-student" key="list">List Student Profile</Nav.Link>,
               <Nav.Link id="add-stuff-nav" as={NavLink} to="/add-company" key="add">Add Company Profile</Nav.Link>,
               <Nav.Link id="list-stuff-nav" as={NavLink} to="/list-company" key="list">List Company Profiles</Nav.Link>,
               <Nav.Link id="list-jobs-nav" as={NavLink} to="/list-jobs" key="list">List Jobs</Nav.Link>,
