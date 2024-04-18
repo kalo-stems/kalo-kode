@@ -47,7 +47,7 @@ const AddStudent = () => {
   return (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col xs={10}>
+        <Col xs={8}>
           <Col className="text-center"><h2>Add Student Profile</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
