@@ -39,15 +39,6 @@ class JobsCollection {
     this.userPublicationName = `${this.name}.publication.user`;
     this.adminPublicationName = `${this.name}.publication.admin`;
   }
-
-  updateSteps(jobId, steps) {
-    this.collection.update(jobId, { $set: { steps } });
-  }
-
-  getSteps(jobId) {
-    const job = this.collection.findOne(jobId);
-    return job ? job.steps : [];
-  }
 }
 
 export const Jobs = new JobsCollection();
