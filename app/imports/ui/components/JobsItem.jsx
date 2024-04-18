@@ -28,7 +28,7 @@ JobItem.propTypes = {
     company: PropTypes.string,
     deadline: PropTypes.string,
     seats: PropTypes.number,
-    // _id: PropTypes.string,
+    _id: PropTypes.string,
   }).isRequired,
 };
 
