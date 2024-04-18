@@ -38,5 +38,14 @@
       "description": "Support multi-disciplinary team in developing designs, schematic sketches/diagrams, and documentation drawings.\nAssist in the preparation of design presentations.\nUtilize BIM software as a tool for design drawings.\nPrepare presentations, including graphic design and PowerPoint.\nEffective teaming within the project team.",
       "requirements": "Familiarity in Revit, Rhino and/or Sketch-up.\nFamiliarity with Photoshop, InDesign, Illustrator and Microsoft Office essential\nGood communication skills and the ability to work effectively with others\nAbility to work in an energetic and challenging work environment\nMust be able to work remotely when necessary.\n\nPlease include a portfolio with your submission.\nEducation and Experience\nWorking toward a BA or BS in Architecture, Bachelor of Architecture, or Master of Architecture degree. Please note: We are looking for someone who is currently pursuing an Architectural degree from an accredited school. If you have already graduated, please check our website for other full-time positions that might be more suitable for you.",
       "wage": "18.45 - 27.12", "company": "Stantec Consulting Services", "deadline": "05/27/2024 at 11:00PM HST", "seats": "1"}
+  ],
+  "defaultCompanyProfiles": [
+    { "name": "KaloStems",
+      "logo": "https://github.com/kalo-stems/kalo-stems.github.io/blob/main/pics/kalostems-logo.png",
+      "address": "UH Manoa",
+      "email": "kalostems@hawaii.edu",
+      "links": "http://209.38.128.154/",
+      "description": "We are an all-women team!"
+    }
   ]
 }

@@ -30,3 +30,17 @@ if (Jobs.collection.find().count() === 0) {
     Meteor.settings.defaultJobs.forEach(job => addJobs(job));
   }
 }
+
+// Initialize the database with a default data document.
+const addCompanyProfile = (companyProfile) => {
+  console.log(`  Adding: ${companyProfile.name} (${companyProfile.owner})`);
+  Stuffs.collection.insert(companyProfile);
+};
+
+// Initialize the StuffsCollection if empty.
+if (Stuffs.collection.find().count() === 0) {
+  if (Meteor.settings.defaultCompanyProfiles) {
+    console.log('Creating default Company Profiles data.');
+    Meteor.settings.defaultCompanyProfiles.forEach(companyProfile => addCompanyProfile(companyProfile));
+  }
+}
