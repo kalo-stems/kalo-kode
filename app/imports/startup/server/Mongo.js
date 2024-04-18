@@ -18,6 +18,7 @@ if (Stuffs.collection.find().count() === 0) {
   }
 }
 
+// Initialize the database with a default job document.
 const addJobs = (job) => {
   console.log(`  Adding: ${job.title} (INSERT COMPANY NAME)`);
   Jobs.collection.insert(job);

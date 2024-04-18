@@ -62,7 +62,7 @@ const SignUp = ({ location }) => {
               <Card.Body>
                 <TextField name="email" placeholder="E-mail address" />
                 <TextField name="password" placeholder="Password" type="password" />
-                <SelectField name="role" placeholder="Role" label="Signing in as" options={roles} />
+                <SelectField name="role" placeholder="Role" label="Signing up as" options={roles} />
                 <ErrorsField />
                 <SubmitField />
               </Card.Body>
