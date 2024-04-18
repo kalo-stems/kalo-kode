@@ -2,9 +2,6 @@ import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Companies } from '../../api/company/Company.js';
 import { Jobs } from '../../api/job/Jobs';
-
-/* eslint-disable no-console */
-
 // Initialize the database with a default data document.
 const addData = (data) => {
   console.log(`  Adding: ${data.name} (${data.owner})`);
