@@ -16,24 +16,28 @@ const NavBar = () => {
     <Navbar bg="light" expand="lg">
       <Container className="justify-content-left">
         <Nav className="mx-auto">
-          <Nav.Item className="active border-3">Our Mission</Nav.Item>
-          <Nav.Item className="active">About Us</Nav.Item>
+          <Nav.Link style={{ color: 'white' }}>Our Mission</Nav.Link>
+          <Nav.Link style={{ color: 'white' }}>About Us</Nav.Link>
         </Nav>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto justify-content-start">
+          <Nav className="me-auto">
             {currentUser ? ([
-              <Nav.Link id="add-stuff-nav" as={NavLink} to="/add-student" key="add">Add Student Information</Nav.Link>,
-              <Nav.Link id="list-stuff-nav" as={NavLink} to="/list-student" key="list">List Student Information</Nav.Link>,
-              <Nav.Link id="add-stuff-nav" as={NavLink} to="/add-company" key="add">Add Company Profile</Nav.Link>,
-              <Nav.Link id="list-stuff-nav" as={NavLink} to="/list-company" key="list">List Company Profiles</Nav.Link>,
-              <Nav.Link id="list-jobs-nav" as={NavLink} to="/list-jobs" key="list">List Jobs</Nav.Link>,
+              <Nav.Link style={{ color: 'white' }} id="list-company-nav" as={NavLink} to="/list-company" key="list">List Company Profiles</Nav.Link>,
+              <Nav.Link style={{ color: 'white' }} id="list-student-nav" as={NavLink} to="/list-student" key="list">List Student Information</Nav.Link>,
+              <Nav.Link style={{ color: 'white' }} id="list-jobs-nav" as={NavLink} to="/list-jobs" key="list">List Jobs</Nav.Link>,
             ]) : ''}
+            {Roles.userIsInRole(Meteor.userId(), 'student') ? (
+              <Nav.Link style={{ color: 'white' }} id="add-student-nav" as={NavLink} to="/add-student" key="add">Add Student Information</Nav.Link>
+            ) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-              <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
+              <Nav.Link style={{ color: 'white' }} id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
+            ) : ''}
+            {Roles.userIsInRole(Meteor.userId(), 'company') ? (
+              <Nav.Link style={{ color: 'white' }} id="add-company-nav" as={NavLink} to="/add-company" key="add">Add Company Profile</Nav.Link>
             ) : ''}
           </Nav>
-          <Nav className="justify-content-end">
+          <Nav className="justi fy-content-end">
             {currentUser === '' ? (
               <NavDropdown id="login-dropdown" title="Login">
                 <NavDropdown.Item id="login-dropdown-sign-in" as={NavLink} to="/signin">
@@ -48,7 +52,7 @@ const NavBar = () => {
                 </NavDropdown.Item>
               </NavDropdown>
             ) : (
-              <NavDropdown id="navbar-current-user" title={currentUser}>
+              <NavDropdown style={{ color: 'white' }} id="navbar-current-user" title={currentUser}>
                 <NavDropdown.Item id="navbar-sign-out" as={NavLink} to="/signout">
                   <BoxArrowRight />
                   {' '}

@@ -8,10 +8,14 @@
 .nav-link {
   padding: 0rem 1rem 0rem 1rem;
   color: white;
-  font-size: larger;
+  font-size: medium;
 }
 
 #login-dropdown {
+  color: white;
+}
+
+#nav-current-user {
   color: white;
 }
 
@@ -30,7 +34,7 @@ body {
 
 #background {
   background-size: cover;
-  background-position: center ;
+  background-position: center;
 }
 
 #motto {
