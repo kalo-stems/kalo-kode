@@ -2,33 +2,33 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row, Table } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Stuffs } from '../../api/stuff/Stuff';
-import StuffItem from '../components/StuffItem';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { Students } from '../../api/student/Student';
+import StudentItem from '../components/StudentItem';
 
-/* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
+/* Renders a table containing all of the Student documents. Use <StudentItem> to render each row. */
 const ListStudent = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, stuffs } = useTracker(() => {
+  const { ready, students } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
-    // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Stuffs.userPublicationName);
+    // Get access to Student documents.
+    const subscription = Meteor.subscribe(Students.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
-    // Get the Stuff documents
-    const stuffItems = Stuffs.collection.find({}).fetch();
+    // Get the Student documents
+    const studentItems = Students.collection.find({}).fetch();
     return {
-      stuffs: stuffItems,
+      students: studentItems,
       ready: rdy,
     };
   }, []);
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col md={7}>
+        <Col md={8}>
           <Col className="text-center">
-            <h2>List Stuff</h2>
+            <h2>List Student Profiles</h2>
           </Col>
           <Table striped bordered hover>
             <thead>
@@ -40,7 +40,7 @@ const ListStudent = () => {
               </tr>
             </thead>
             <tbody>
-              {stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} />)}
+              {students.map((student) => <StudentItem key={student._id} student={student} />)}
             </tbody>
           </Table>
         </Col>

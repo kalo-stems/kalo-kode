@@ -9,6 +9,9 @@ import { Students } from '../../api/student/Student';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
+  firstName: String,
+  lastName: String,
+  image: String,
   email: String,
   phoneNumber: String,
   major: String,
@@ -27,10 +30,10 @@ const AddStudent = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } = data;
+    const { firstName, lastName, image, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } = data;
     const owner = Meteor.user().username;
     Students.collection.insert(
-      { email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub, owner },
+      { firstName, lastName, image, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -52,6 +55,15 @@ const AddStudent = () => {
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
+                <Row>
+                  <Col>
+                    <TextField name="firstName" />
+                  </Col>
+                  <Col>
+                    <TextField name="lastName" />
+                  </Col>
+                </Row>
+                <TextField name="image" />
                 <Row>
                   <Col>
                     <TextField name="email" />

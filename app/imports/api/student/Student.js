@@ -12,6 +12,9 @@ class StudentsCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
+      firstName: String,
+      lastName: String,
+      image: String,
       email: String,
       phoneNumber: String,
       major: String,

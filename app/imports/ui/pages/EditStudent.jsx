@@ -32,8 +32,8 @@ const EditStudent = () => {
   // console.log('EditStudent', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } = data;
-    Students.collection.update(_id, { $set: { email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } }, (error) => (error ?
+    const { firstName, lastName, image, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } = data;
+    Students.collection.update(_id, { $set: { firstName, lastName, image, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };
@@ -46,6 +46,15 @@ const EditStudent = () => {
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
               <Card.Body>
+                <Row>
+                  <Col>
+                    <TextField name="firstName" />
+                  </Col>
+                  <Col>
+                    <TextField name="lastName" />
+                  </Col>
+                </Row>
+                <TextField name="image" />
                 <Row>
                   <Col>
                     <TextField name="email" />
