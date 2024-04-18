@@ -1,4 +1,3 @@
-// job.js
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
@@ -11,18 +10,20 @@ class JobsCollection {
       description: String,
       requirements: String,
       wage: String,
-      company: String,
       deadline: String,
       seats: Number,
-      acceptedApplications: Number,
-      steps: Array, // Array to store steps
-      'steps.$': String, // Each step is a string
-      // Add user and company contact information to the schema
+      acceptedApplications: { // Field for tracking accepted applications
+        type: Number,
+        defaultValue: 0,
+      },
+      steps: Array,
+      'steps.$': String,
       user: {
         type: new SimpleSchema({
           name: String,
           email: String,
           phone: String,
+          company: String, // Company within user schema
         }),
       },
       company: {
@@ -39,12 +40,10 @@ class JobsCollection {
     this.adminPublicationName = `${this.name}.publication.admin`;
   }
 
-  // Method to update the list of steps for a job
   updateSteps(jobId, steps) {
-    this.collection.update(jobId, { $set: { steps: steps } });
+    this.collection.update(jobId, { $set: { steps } });
   }
 
-  // Method to get the list of steps for a job
   getSteps(jobId) {
     const job = this.collection.findOne(jobId);
     return job ? job.steps : [];
@@ -52,4 +51,3 @@ class JobsCollection {
 }
 
 export const Jobs = new JobsCollection();
-
