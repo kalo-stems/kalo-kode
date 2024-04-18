@@ -39,7 +39,13 @@ body {
 
 #search-button {
   background-color: var(--matr-navbar-bg);
-  padding: 1px 2px 1px 2px;
+  padding: 2px 2px 2px 2px;
+  margin-left: 6px;
+  margin-buttom: 5px;
+}
+
+#search-button {
+  margin-bottom: 5px;
 }
 
 footer {
