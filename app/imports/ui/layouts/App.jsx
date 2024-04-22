@@ -74,6 +74,7 @@ const ProtectedRoute = ({ children }) => {
  * Checks for Meteor login and admin role before routing to the requested page, otherwise goes to signin page.
  * @param {any} { component: Component, ...rest }
  */
+
 const AdminProtectedRoute = ({ ready, children }) => {
   const isLogged = Meteor.userId() !== null;
   if (!isLogged) {
@@ -86,6 +87,40 @@ const AdminProtectedRoute = ({ ready, children }) => {
   return (isLogged && isAdmin) ? children : <Navigate to="/notauthorized" />;
 };
 
+/**
+ * CompanyProtectedRoute
+ * Checks for Meteor login and company role before routing to the requested page, otherwise goes to signin page.
+ * @param {any} { component: Component, ...rest }
+ */
+const CompanyProtectedRoute = ({ children }) => {
+  const isLogged = Meteor.userId() !== null;
+  if (!isLogged) {
+    return <Navigate to="/signin" />;
+  }
+  if (!Roles.subscription.ready()) {
+    return <LoadingSpinner />;
+  }
+  const isCompany = Roles.userIsInRole(Meteor.userId(), 'company');
+  return isLogged && isCompany ? children : <Navigate to="/notauthorized" />;
+};
+
+/**
+ * StudentProtectedRoute
+ * Checks for Meteor login and student role before routing to the requested page, otherwise goes to signin page.
+ * @param {any} { component: Component, ...rest }
+ */
+const StudentProtectedRoute = ({ children }) => {
+  const isLogged = Meteor.userId() !== null;
+  if (!isLogged) {
+    return <Navigate to="/signin" />;
+  }
+  if (!Roles.subscription.ready()) {
+    return <LoadingSpinner />;
+  }
+  const isStudent = Roles.userIsInRole(Meteor.userId(), 'student');
+  return isLogged && isStudent ? children : <Navigate to="/notauthorized" />;
+};
+
 // Require a component and location to be passed to each ProtectedRoute.
 ProtectedRoute.propTypes = {
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
@@ -95,14 +130,21 @@ ProtectedRoute.defaultProps = {
   children: <Landing />,
 };
 
-// Require a component and location to be passed to each AdminProtectedRoute.
-AdminProtectedRoute.propTypes = {
-  ready: PropTypes.bool,
+// Require a component and location to be passed to each CompanyProtectedRoute.
+CompanyProtectedRoute.propTypes = {
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
 };
 
-AdminProtectedRoute.defaultProps = {
-  ready: false,
+CompanyProtectedRoute.defaultProps = {
+  children: <Landing />,
+};
+
+// Require a component and location to be passed to each StudentProtectedRoute.
+StudentProtectedRoute.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+};
+
+StudentProtectedRoute.defaultProps = {
   children: <Landing />,
 };
 

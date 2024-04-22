@@ -5,7 +5,7 @@ import { Accounts } from 'meteor/accounts-base';
 import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { AutoForm, ErrorsField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, SubmitField, TextField, SelectField } from 'uniforms-bootstrap5';
 
 /**
  * SignUp component is similar to signin component, but we create a new user instead.
@@ -17,7 +17,11 @@ const SignUp = ({ location }) => {
   const schema = new SimpleSchema({
     email: String,
     password: String,
-    role: String,
+    role: {
+      type: String,
+      allowedValues: ['student', 'company'],
+      defaultValue: 'student',
+    },
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
@@ -29,7 +33,7 @@ const SignUp = ({ location }) => {
         setError(err.reason);
       } else {
         setError('');
-        setRedirectToRef(true);
+        setRedirectToRef(role); // store the role to use for redirection
       }
     });
   };
@@ -55,7 +59,7 @@ const SignUp = ({ location }) => {
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center">
-            <h2>Register your account</h2>
+            <h2>Register and Connect!</h2>
           </Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
