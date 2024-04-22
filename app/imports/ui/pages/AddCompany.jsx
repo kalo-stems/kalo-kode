@@ -44,7 +44,7 @@ const AddCompany = () => {
   return (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col xs={5}>
+        <Col xs={8}>
           <Col className="text-center"><h2>Add Company Profile</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={companyData => submit(companyData, fRef)}>
             <Card>

@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
-import { Companies } from '../../api/company/Company';
 import { Jobs } from '../../api/job/Jobs';
 
 // User-level publication.
@@ -10,14 +9,6 @@ Meteor.publish(Stuffs.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
     return Stuffs.collection.find({ owner: username });
-  }
-  return this.ready();
-});
-
-Meteor.publish(Companies.userPublicationName, function () {
-  if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Companies.collection.find({ owner: username });
   }
   return this.ready();
 });
@@ -35,13 +26,6 @@ Meteor.publish(Jobs.userPublicationName, function () {
 Meteor.publish(Stuffs.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Stuffs.collection.find();
-  }
-  return this.ready();
-});
-
-Meteor.publish(Companies.adminPublicationName, function () {
-  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Companies.collection.find();
   }
   return this.ready();
 });
