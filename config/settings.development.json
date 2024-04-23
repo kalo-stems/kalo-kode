@@ -22,7 +22,9 @@
     }
   ],
 
-  "defaultStudentProfiles": [
+  "defaultStudents": [
+    { "firstName": "Rina", "lastName": "Ogino", "image": "https://media.licdn.com/dms/image/D5603AQFIQSUJpYROhA/profile-displayphoto-shrink_200_200/0/1705889418893?e=2147483647&v=beta&t=zQzcX7aDHGdPZmZZCt8AOBviW-vkH8j-HBau36LQRd4", "email": "rin4@hawaii.edu", "phoneNumber": "(808) 221-9127", "major": "Computer Science", "graduationDate": "May 2025", "skills": "Yapping", "awards": "None", "description": "I am a undergraduate student studying Computer Science with a minor in Japanese at the University of Hawaii at Manoa. My journey in my academics has been driven by a fascination with numbers and a keen interest in databases, as well as the study of various languages and cultures. Some of my other interests include community involvement, traveling, surfing, and snowboarding. I am expected to graduate in the Spring of 2025.", "linkedIn": "https://www.linkedin.com/in/rinaogino", "gitHub": "https://github.com/rinaogino/"
+    },
     { "firstName": "Rina", "lastName": "Ogino", "image": "https://media.licdn.com/dms/image/D5603AQFIQSUJpYROhA/profile-displayphoto-shrink_200_200/0/1705889418893?e=2147483647&v=beta&t=zQzcX7aDHGdPZmZZCt8AOBviW-vkH8j-HBau36LQRd4", "email": "rin4@hawaii.edu", "phoneNumber": "(808) 221-9127", "major": "Computer Science", "graduationDate": "May 2025", "skills": "Yapping", "awards": "None", "description": "I am a undergraduate student studying Computer Science with a minor in Japanese at the University of Hawaii at Manoa. My journey in my academics has been driven by a fascination with numbers and a keen interest in databases, as well as the study of various languages and cultures. Some of my other interests include community involvement, traveling, surfing, and snowboarding. I am expected to graduate in the Spring of 2025.", "linkedIn": "https://www.linkedin.com/in/rinaogino", "gitHub": "https://github.com/rinaogino/"
     }
   ],

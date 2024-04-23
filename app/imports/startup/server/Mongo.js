@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Jobs } from '../../api/job/Jobs';
+import { Students } from '../../api/student/Student';
 
 /* eslint-disable no-console */
 
@@ -15,6 +16,19 @@ if (Stuffs.collection.find().count() === 0) {
   if (Meteor.settings.defaultData) {
     console.log('Creating default data.');
     Meteor.settings.defaultData.forEach(data => addData(data));
+  }
+}
+
+const addStudents = (student) => {
+  console.log(`  Adding: ${student.firstName} (${student.owner})`);
+  Students.collection.insert(student);
+};
+
+// Initialize the StudentsCollection if empty.
+if (Students.collection.find().count() === 0) {
+  if (Meteor.settings.defaultStudents) {
+    console.log('Creating default data.');
+    Meteor.settings.defaultStudents.forEach(student => addStudents(student));
   }
 }
 
