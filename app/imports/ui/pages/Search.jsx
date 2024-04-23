@@ -1,11 +1,11 @@
 import React from 'react';
-import { Button, Col } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
-const Search = () => {
-  <Col className="py-3">
+const Search = () => (
+  <>
     <input id="search-bar" className="fluid" size="50" type="text" placeholder="Search" />
     <Button className="px-2" id="search-button">Search</Button>
-  </Col>;
-};
+  </>
+);
 
 export default Search;
