@@ -20,7 +20,7 @@ if (Stuffs.collection.find().count() === 0) {
 }
 
 const addStudents = (student) => {
-  console.log(`  Adding: ${student.firstName} (${student.owner})`);
+  console.log(`  Adding: ${student.name} (${student.owner})`);
   Students.collection.insert(student);
 };
 

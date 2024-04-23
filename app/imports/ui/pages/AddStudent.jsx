@@ -9,8 +9,7 @@ import { Students } from '../../api/student/Student';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
-  firstName: String,
-  lastName: String,
+  name: String,
   image: String,
   email: String,
   phoneNumber: String,
@@ -30,10 +29,10 @@ const AddStudent = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { firstName, lastName, image, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } = data;
+    const { name, image, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } = data;
     const owner = Meteor.user().username;
     Students.collection.insert(
-      { firstName, lastName, image, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub, owner },
+      { name, image, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -57,10 +56,7 @@ const AddStudent = () => {
               <Card.Body>
                 <Row>
                   <Col>
-                    <TextField name="firstName" />
-                  </Col>
-                  <Col>
-                    <TextField name="lastName" />
+                    <TextField name="name" />
                   </Col>
                 </Row>
                 <TextField name="image" />

@@ -29,8 +29,7 @@ const ListStudentAdmin = () => {
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>Name</th>
                 <th>Image</th>
                 <th>Email</th>
                 <th>Phone Number</th>

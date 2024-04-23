@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 /** Renders a single row in the List Student table. See pages/ListStudent.jsx. */
 const StudentItem = ({ student }) => (
   <tr>
-    <td>{student.firstName}</td>
-    <td>{student.lastName}</td>
+    <td>{student.name}</td>
     <td>{student.image}</td>
     <td>{student.email}</td>
     <td>{student.phoneNumber}</td>
@@ -26,8 +25,7 @@ const StudentItem = ({ student }) => (
 // Require a document to be passed to this component.
 StudentItem.propTypes = {
   student: PropTypes.shape({
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
+    name: PropTypes.string,
     image: PropTypes.string,
     email: PropTypes.string,
     phoneNumber: PropTypes.string,

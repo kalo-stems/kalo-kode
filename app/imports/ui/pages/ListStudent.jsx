@@ -26,15 +26,14 @@ const ListStudent = () => {
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col md={20}>
+        <Col>
           <Col className="text-center">
             <h2>List Student Profiles</h2>
           </Col>
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>Name</th>
                 <th>Image</th>
                 <th>Email</th>
                 <th>Phone Number</th>

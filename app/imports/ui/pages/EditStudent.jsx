@@ -32,8 +32,8 @@ const EditStudent = () => {
   // console.log('EditStudent', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { firstName, lastName, image, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } = data;
-    Students.collection.update(_id, { $set: { firstName, lastName, image, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } }, (error) => (error ?
+    const { name, image, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } = data;
+    Students.collection.update(_id, { $set: { name, image, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };
@@ -48,10 +48,7 @@ const EditStudent = () => {
               <Card.Body>
                 <Row>
                   <Col>
-                    <TextField name="firstName" />
-                  </Col>
-                  <Col>
-                    <TextField name="lastName" />
+                    <TextField name="name" />
                   </Col>
                 </Row>
                 <TextField name="image" />
