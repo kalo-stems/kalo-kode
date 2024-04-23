@@ -3,22 +3,45 @@ import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
 import { Jobs } from '../../api/job/Jobs';
 
-Meteor.publish('stuffs', function () {
-  if (Roles.userIsInRole(this.userId, ['company', 'student'])) {
-    // Only publish data that company or student users are allowed to see
-    return Stuffs.find({ owner: this.userId });
+// User-level publication.
+// If logged in, then publish documents owned by this user. Otherwise, publish nothing.
+Meteor.publish(Stuffs.userPublicationName, function () {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Stuffs.collection.find({ owner: username });
   }
-  // Optionally, you might want to restrict access for non-authorized users
-  return [];
-
+  return this.ready();
 });
 
-Meteor.publish('jobs', function () {
-  if (Roles.userIsInRole(this.userId, ['company', 'student'])) {
-    // Only publish data that company or student users are allowed to see
-    return Jobs.find({ active: true });
+Meteor.publish(Jobs.userPublicationName, function () {
+  if (this.userId) {
+    // const username = Meteor.users.findOne(this.userId).username;
+    return Jobs.collection.find();
   }
-  // Optionally, you might want to restrict access for non-authorized users
-  return [];
+  return this.ready();
+});
 
+// Admin-level publication.
+// If logged in and with admin role, then publish all documents from all users. Otherwise, publish nothing.
+Meteor.publish(Stuffs.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Stuffs.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(Jobs.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Jobs.collection.find();
+  }
+  return this.ready();
+});
+
+// alanning:roles publication
+// Recommended code to publish roles for each user.
+Meteor.publish(null, function () {
+  if (this.userId) {
+    return Meteor.roleAssignment.find({ 'user._id': this.userId });
+  }
+  return this.ready();
 });

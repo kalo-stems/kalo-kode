@@ -6,20 +6,22 @@ import { Roles } from 'meteor/alanning:roles';
 
 const createUser = (email, password, role) => {
   console.log(`  Creating user ${email}.`);
-  const userId = Accounts.createUser({
+  const userID = Accounts.createUser({
     username: email,
     email: email,
     password: password,
   });
-
-  // Validate role before assigning
-  if (['company', 'student'].includes(role)) {
-    // Create role if it doesn't exist
+  if (role === 'admin') {
     Roles.createRole(role, { unlessExists: true });
-    // Assign role to user
-    Roles.addUsersToRoles(userId, role);
-  } else {
-    throw new Meteor.Error('invalid-role', 'Invalid user role');
+    Roles.addUsersToRoles(userID, 'admin');
+  }
+  if (role === 'company') {
+    Roles.createRole(role, { unlessExists: true });
+    Roles.addUsersToRoles(userID, 'company');
+  }
+  if (role === 'student') {
+    Roles.createRole(role, { unlessExists: true });
+    Roles.addUsersToRoles(userID, 'student');
   }
 };
 

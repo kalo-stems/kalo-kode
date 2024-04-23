@@ -1,6 +1,7 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
+
 /**
  * The JobsCollection. It encapsulates state and variable values for job.
  */
@@ -27,6 +28,7 @@ class JobsCollection {
     this.adminPublicationName = `${this.name}.publication.admin`;
   }
 }
+
 
 /**
  * The singleton instance of the JobsCollection.
