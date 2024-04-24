@@ -14,22 +14,6 @@ Meteor.publish(Stuffs.userPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(Students.userPublicationName, function () {
-  if (this.userId) {
-    // const username = Meteor.users.findOne(this.userId).username;
-    return Students.collection.find();
-  }
-  return this.ready();
-});
-
-Meteor.publish(Jobs.userPublicationName, function () {
-  if (this.userId) {
-    // const username = Meteor.users.findOne(this.userId).username;
-    return Jobs.collection.find();
-  }
-  return this.ready();
-});
-
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise, publish nothing.
 Meteor.publish(Stuffs.adminPublicationName, function () {
@@ -39,9 +23,25 @@ Meteor.publish(Stuffs.adminPublicationName, function () {
   return this.ready();
 });
 
+Meteor.publish(Students.userPublicationName, function () {
+  if (this.userId) {
+    // const username = Meteor.users.findOne(this.userId).username;
+    return Students.collection.find();
+  }
+  return this.ready();
+});
+
 Meteor.publish(Students.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Students.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(Jobs.userPublicationName, function () {
+  if (this.userId) {
+    // const username = Meteor.users.findOne(this.userId).username;
+    return Jobs.collection.find();
   }
   return this.ready();
 });
