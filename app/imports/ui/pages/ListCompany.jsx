@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row, Table } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Companies } from '../../api/company/Company';
 import CompanyItem from '../components/CompanyItem';
@@ -12,11 +12,11 @@ const ListCompany = () => {
   const { ready, companies } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
-    // Get access to Stuff documents.
+    // Get access to Company documents.
     const subscription = Meteor.subscribe(Companies.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
-    // Get the Stuff documents
+    // Get the Company documents
     const companyItems = Companies.collection.find({}).fetch();
     return {
       companies: companyItems,
@@ -26,25 +26,13 @@ const ListCompany = () => {
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col md={15}>
+        <Col>
           <Col className="text-center">
-            <h2>Company Profiles</h2>
+            <h2>List of Company Profiles</h2>
           </Col>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Logo</th>
-                <th>Address</th>
-                <th>Email</th>
-                <th>Links</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              {companies.map((company) => <CompanyItem key={company._id} company={company} />)}
-            </tbody>
-          </Table>
+          <Row xs={1} md={2} lg={3} className="g-4">
+            {companies.map((company) => (<Col key={company._id}><CompanyItem company={company} /></Col>))}
+          </Row>
         </Col>
       </Row>
     </Container>
