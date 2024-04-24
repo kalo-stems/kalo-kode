@@ -24,7 +24,7 @@ const ListCompany = () => {
     };
   }, []);
   return (ready ? (
-    <Container className="py-3">
+    <Container id="list-company-page" className="py-3">
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">
