@@ -3,7 +3,7 @@ import { Image, Col, Row } from 'react-bootstrap';
 
 /* A simple static component to render some text for the landing page. */
 const Landing = () => (
-  <Row fluid>
+  <Row id="landing-page" fluid="true">
     <Image src="images/background.png" id="background" width="cover" />
     <Col xs={8} className="text-center position-absolute top-50 start-50 translate-middle" id="body-text">
       <Row className="align-content-center justify-content-center">
