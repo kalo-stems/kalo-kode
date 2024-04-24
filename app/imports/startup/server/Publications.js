@@ -26,8 +26,8 @@ Meteor.publish(Jobs.userPublicationName, function () {
 // If logged in as a company, then publish documents owned by this user. Otherwise, publish nothing.
 Meteor.publish(Companies.userPublicationName, function () {
   if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Companies.collection.find({ owner: username });
+    // const username = Meteor.users.findOne(this.userId).username;
+    return Companies.collection.find();
   }
   return this.ready();
 });
