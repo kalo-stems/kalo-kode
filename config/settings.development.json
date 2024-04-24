@@ -49,11 +49,25 @@
   ],
   "defaultCompanyProfiles": [
     { "name": "KaloStems",
-      "logo": "https://ih1.redbubble.net/image.2505833134.7185/flat,750x,075,f-pad,750x1000,f8f8f8.u1.jpg",
+      "logo": "https://github.com/kalo-stems/kalo-kode/blob/main/doc/KaloStemsCircleLogo.png?raw=true",
       "address": "UH Manoa",
       "email": "kalostems@hawaii.edu",
       "links": "http://209.38.128.154/",
-      "description": "We are an all-women team!"
+      "description": "Our platform, Kalo Stems, will allow UH students to connect with career opportunities that are tailored to their interests and skills. Students will be able to specify their background and aspirations, allowing companies to filter and match students who are best fit for their opportunity. Kalo Stems bridges the gap between academia and industry, allowing students long-term professional success."
+    },
+    { "name": "GitHub",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/1200px-GitHub_Invertocat_Logo.svg.png",
+      "address": "San Francisco, CA",
+      "email": "github@github.com",
+      "links": "https://github.com/",
+      "description": "GitHub is a developer platform that allows developers to create, store, manage and share their code. It uses Git software, providing the distributed version control of Git plus access control, bug tracking, software feature requests, task management, continuous integration, and wikis for every project."
+    },
+    { "name": "LinkedIn",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png",
+      "address": "Sunnyvale, CA",
+      "email": "linkedin@linkedin.com",
+      "links": "https://www.linkedin.com/",
+      "description": "LinkedIn is a business and employment-focused social media platform that works through websites and mobile apps. It was launched on May 5, 2003 by Reid Hoffman and Eric Ly. Since December 2016, LinkedIn has been a wholly owned subsidiary of Microsoft. "
     }
   ]
 }
