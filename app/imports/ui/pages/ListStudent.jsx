@@ -6,17 +6,17 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import { Students } from '../../api/student/Student';
 import StudentItem from '../components/StudentItem';
 
-/* Renders a table containing all of the Student documents. Use <StudentItem> to render each row. */
+/* Renders a table containing all of the Students documents. Use <StudentItem> to render each row. */
 const ListStudent = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, students } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
-    // Get access to Student documents.
+    // Get access to Students documents.
     const subscription = Meteor.subscribe(Students.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
-    // Get the Student documents
+    // Get the Students documents
     const studentItems = Students.collection.find({}).fetch();
     return {
       students: studentItems,
@@ -24,7 +24,7 @@ const ListStudent = () => {
     };
   }, []);
   return (ready ? (
-    <Container className="py-3">
+    <Container fluid className="py-3">
       <Row className="justify-content-center">
         <Col md={20}>
           <Col className="text-center">
@@ -33,8 +33,7 @@ const ListStudent = () => {
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>Full Name</th>
                 <th>Image</th>
                 <th>Email</th>
                 <th>Phone Number</th>

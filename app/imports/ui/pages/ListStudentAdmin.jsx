@@ -6,15 +6,15 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import { Students } from '../../api/student/Student';
 import StudentItemAdmin from '../components/StudentItemAdmin';
 
-/* Renders a table containing all of the Student documents. Use <StudentItemAdmin> to render each row. */
+/* Renders a table containing all of the Students documents. Use <StudentItemAdmin> to render each row. */
 const ListStudentAdmin = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { students, ready } = useTracker(() => {
-    // Get access to Student documents.
+    // Get access to Students documents.
     const subscription = Meteor.subscribe(Students.adminPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
-    // Get the Student documents
+    // Get the Students documents
     const items = Students.collection.find({}).fetch();
     return {
       students: items,
@@ -29,8 +29,7 @@ const ListStudentAdmin = () => {
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>Full Name</th>
                 <th>Image</th>
                 <th>Email</th>
                 <th>Phone Number</th>

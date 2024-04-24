@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-/** Renders a single row in the List Student (Admin) table. See pages/ListStudentAdmin.jsx. */
+/** Renders a single row in the List Students (Admin) table. See pages/ListStudentAdmin.jsx. */
 const StudentItemAdmin = ({ student }) => (
   <tr>
-    <td>{student.firstName}</td>
-    <td>{student.lastName}</td>
+    <td>{student.fullName}</td>
     <td>{student.image}</td>
     <td>{student.email}</td>
     <td>{student.phoneNumber}</td>
@@ -26,8 +25,7 @@ const StudentItemAdmin = ({ student }) => (
 // Require a document to be passed to this component.
 StudentItemAdmin.propTypes = {
   student: PropTypes.shape({
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
+    fullName: PropTypes.string,
     image: PropTypes.string,
     email: PropTypes.string,
     phoneNumber: PropTypes.string,
