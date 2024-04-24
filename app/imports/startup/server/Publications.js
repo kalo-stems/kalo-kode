@@ -1,38 +1,22 @@
 import { Meteor } from 'meteor/meteor';
-import { Roles } from 'meteor/alanning:roles';
-import { Stuffs } from '../../api/stuff/Stuff';
 import { Jobs } from '../../api/job/Jobs';
+import { CompanyProfile } from '../../api/company/CompanyProfile';
+import { StudentProfile } from '../../api/student/StudentProfile';
 
-// User-level publication.
-// If logged in, then publish documents owned by this user. Otherwise, publish nothing.
-Meteor.publish(Stuffs.userPublicationName, function () {
+/** Define a publication to publish all interests. */
+Meteor.publish(CompanyProfile.userPublicationName, () => CompanyProfile.collection.find());
+
+/** Define a publication to publish all profiles. */
+Meteor.publish(StudentProfile.userPublicationName, () => StudentProfile.collection.find());
+
+/** Define a publication to publish this collection. */
+Meteor.publish(Jobs.userPublicationName, () => Jobs.collection.find());
+
+// alanning:roles publication
+// Recommended code to publish roles for each user.
+Meteor.publish(null, function () {
   if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Stuffs.collection.find({ owner: username });
-  }
-  return this.ready();
-});
-
-Meteor.publish(Jobs.userPublicationName, function () {
-  if (this.userId) {
-    // const username = Meteor.users.findOne(this.userId).username;
-    return Jobs.collection.find();
-  }
-  return this.ready();
-});
-
-// Admin-level publication.
-// If logged in and with admin role, then publish all documents from all users. Otherwise, publish nothing.
-Meteor.publish(Stuffs.adminPublicationName, function () {
-  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Stuffs.collection.find();
-  }
-  return this.ready();
-});
-
-Meteor.publish(Jobs.adminPublicationName, function () {
-  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Jobs.collection.find();
+    return Meteor.roleAssignment.find({ 'user._id': this.userId });
   }
   return this.ready();
 });

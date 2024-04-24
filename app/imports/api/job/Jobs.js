@@ -1,7 +1,6 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
-
 /**
  * The JobsCollection. It encapsulates state and variable values for job.
  */
