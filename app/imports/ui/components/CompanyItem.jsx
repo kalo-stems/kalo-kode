@@ -17,7 +17,7 @@ const CompanyItem = ({ company }) => (
       <Card.Text>{company.description}</Card.Text>
     </Card.Body>
     <td>
-      <Link to={`/edit/${company._id}`}>Edit</Link>
+      <Link to={`/edit-company/${company._id}`}>Edit</Link>
     </td>
   </Card>
 );
