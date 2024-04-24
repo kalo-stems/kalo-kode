@@ -42,7 +42,7 @@ const AddCompany = () => {
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
   return (
-    <Container className="py-3">
+    <Container id="add-company-page" className="py-3">
       <Row className="justify-content-center">
         <Col xs={8}>
           <Col className="text-center"><h2>Add Company Profile</h2></Col>
