@@ -37,6 +37,21 @@ body {
   color: darkgreen;
 }
 
+#sample-image-1 {
+  width: 100%;
+  border: 5px solid darkgreen;
+}
+
+#sample-image-2 {
+  width: 100%;
+  border: 5px solid darkgreen;
+}
+
+#sample-image-3 {
+  width: 100%;
+  border: 5px solid darkgreen;
+}
+
 footer {
   color: white;
 }
