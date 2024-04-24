@@ -3,16 +3,19 @@ import { Image, Col, Row } from 'react-bootstrap';
 
 /* A simple static component to render some text for the landing page. */
 const Landing = () => (
-  <Row id="landing-page" fluid>
+  <Row fluid>
     <Image src="images/background.png" id="background" width="cover" />
     <Col xs={8} className="text-center position-absolute top-50 start-50 translate-middle" id="body-text">
       <Row className="align-content-center justify-content-center">
         <h1><strong>Welcome to Kalo Stems!</strong></h1>
         <h2 id="motto">&quot;Cultivate Your Future, Stem Your Network with Companies!&quot;</h2>
         {/* eslint-disable-next-line max-len */}
-        <h4>Our platform will allow UH students to connect with career opportunities that are tailored to their interests and skills. Students will be able to specify their background and aspirations allowing companies to filter and match
-          students who are best fit for their opportunity. KaloStems bridges the gap between academia and industry, allowing students long-term professional success.
-        </h4>
+        <Col xs={4}>
+          <Image src="images/addCompanyProfilePage.png" />
+        </Col>
+        <Col xs={4}>
+          <Image src="images/listJobsPage.png" />
+        </Col>
       </Row>
     </Col>
   </Row>
