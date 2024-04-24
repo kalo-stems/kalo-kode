@@ -24,9 +24,9 @@ const ListStudent = () => {
     };
   }, []);
   return (ready ? (
-    <Container className="py-3">
+    <Container fluid className="py-3">
       <Row className="justify-content-center">
-        <Col>
+        <Col md={20}>
           <Col className="text-center">
             <h2>List Student Profiles</h2>
           </Col>
