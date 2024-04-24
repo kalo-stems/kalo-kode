@@ -18,7 +18,7 @@ const StudentItem = ({ student }) => (
     <td>{student.linkedIn}</td>
     <td>{student.gitHub}</td>
     <td>
-      <Link to={`/edit/${student._id}`}>Edit</Link>
+      <Link to={`/edit-student/${student._id}`}>Edit</Link>
     </td>
   </tr>
 );
