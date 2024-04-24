@@ -9,13 +9,6 @@ const Landing = () => (
       <Row className="align-content-center justify-content-center">
         <h1><strong>Welcome to Kalo Stems!</strong></h1>
         <h2 id="motto">&quot;Cultivate Your Future, Stem Your Network with Companies!&quot;</h2>
-        {/* eslint-disable-next-line max-len */}
-        <Col xs={4}>
-          <Image src="images/addCompanyProfilePage.png" />
-        </Col>
-        <Col xs={4}>
-          <Image src="images/listJobsPage.png" />
-        </Col>
       </Row>
     </Col>
   </Row>
