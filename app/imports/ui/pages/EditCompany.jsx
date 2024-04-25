@@ -31,8 +31,8 @@ const EditCompany = () => {
   }, [_id]);
   // console.log('EditCompany', doc, ready);
   // On successful submit, insert the data.
-  const submit = (data) => {
-    const { name, logo, address, email, links, description } = data;
+  const submit = (companyProfile) => {
+    const { name, logo, address, email, links, description } = companyProfile;
     Companies.collection.update(_id, { $set: { name, logo, address, email, links, description } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
@@ -43,7 +43,7 @@ const EditCompany = () => {
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center"><h2>Edit Company Profile</h2></Col>
-          <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
+          <AutoForm schema={bridge} onSubmit={companyProfile => submit(companyProfile)} model={doc}>
             <Card>
               <Card.Body>
                 <TextField name="logo" />

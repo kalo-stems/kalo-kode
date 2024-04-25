@@ -8,6 +8,8 @@ const StudentAdmin = ({ student }) => (
   <Card className="h-100">
     <Card.Body>
       <Card.Text>
+        {student.fullName}
+        {student.image}
         {student.phoneNumber}
         {student.major}
         {student.email}
@@ -26,6 +28,8 @@ const StudentAdmin = ({ student }) => (
 // Require a document to be passed to this component.
 StudentAdmin.propTypes = {
   student: PropTypes.shape({
+    fullName: PropTypes.string,
+    image: PropTypes.string,
     phoneNumber: PropTypes.string,
     major: PropTypes.string,
     email: PropTypes.string,

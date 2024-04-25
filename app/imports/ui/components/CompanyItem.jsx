@@ -1,20 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { Card, Image } from 'react-bootstrap';
 
 /** Renders a single row in the List Company table. See pages/ListCompany.jsx. */
 const CompanyItem = ({ company }) => (
-  <tr>
-    <td>{company.name}</td>
-    <td>{company.logo}</td>
-    <td>{company.address}</td>
-    <td>{company.email}</td>
-    <td>{company.links}</td>
-    <td>{company.description}</td>
+  <Card className="h-100">
+    <Card.Header>
+      <Image src={company.logo} width={75} />
+      <Card.Title>{company.name} </Card.Title>
+    </Card.Header>
+    <Card.Body>
+      <Card.Text>{company.address}</Card.Text>
+      <Card.Text>{company.email}</Card.Text>
+      <Card.Text>{company.links}</Card.Text>
+      <Card.Text>{company.description}</Card.Text>
+    </Card.Body>
     <td>
-      <Link to={`/edit/${company._id}`}>Edit</Link>
+      <Link to={`/edit-company/${company._id}`}>Edit</Link>
     </td>
-  </tr>
+  </Card>
 );
 
 // Require a document to be passed to this component.

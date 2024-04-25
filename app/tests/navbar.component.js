@@ -52,6 +52,29 @@ class NavBar {
     await testController.click('#login-dropdown');
     await testController.click('#login-dropdown-sign-up');
   }
+
+  /** Pull down login menu, go to add company profile page. */
+  async gotoAddCompanyPage(testController) {
+    await testController.click('#add-company-nav');
+  }
+
+  /** Pull down login menu, go to add student profile page. */
+  async gotoAddStudentPage(testController) {
+    await testController.click('#add-student-nav');
+  }
+
+  async gotoListJobPage(testController) {
+    await testController.click('#list-jobs-nav');
+  }
+
+  async gotoListStudentPage(testController) {
+    await testController.click('#list-student-nav');
+  }
+
+  async gotoListCompanyPage(testController) {
+    await testController.click('#list-company-nav');
+  }
+
 }
 
 export const navBar = new NavBar();

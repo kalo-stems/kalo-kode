@@ -44,9 +44,9 @@ const App = () => {
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/add-student" element={<ProtectedRoute><AddStudent /></ProtectedRoute>} />
           <Route path="/list-student" element={<ProtectedRoute><ListStudent /></ProtectedRoute>} />
-          <Route path="/edit/:_id" element={<ProtectedRoute><EditStudent /></ProtectedRoute>} />
+          <Route path="/edit-student/:_id" element={<ProtectedRoute><EditStudent /></ProtectedRoute>} />
           <Route path="/add-company" element={<ProtectedRoute><AddCompany /></ProtectedRoute>} />
-          <Route path="/edit/:_id" element={<ProtectedRoute><EditCompany /></ProtectedRoute>} />
+          <Route path="/edit-company/:_id" element={<ProtectedRoute><EditCompany /></ProtectedRoute>} />
           <Route path="/list-company" element={<ProtectedRoute><ListCompany /></ProtectedRoute>} />
           <Route path="/list-jobs" element={<ProtectedRoute><ListJobs /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
