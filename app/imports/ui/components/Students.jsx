@@ -4,10 +4,12 @@ import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-const Student = ({ student }) => (
+const Students = ({ student }) => (
   <Card className="h-100">
     <Card.Body>
       <Card.Text>
+        {student.fullName}
+        {student.image}
         {student.phoneNumber}
         {student.major}
         {student.email}
@@ -24,8 +26,10 @@ const Student = ({ student }) => (
 );
 
 // Require a document to be passed to this component.
-Student.propTypes = {
+Students.propTypes = {
   student: PropTypes.shape({
+    fullName: PropTypes.string,
+    image: PropTypes.string,
     phoneNumber: PropTypes.string,
     major: PropTypes.string,
     email: PropTypes.string,
@@ -39,4 +43,4 @@ Student.propTypes = {
   }).isRequired,
 };
 
-export default Student;
+export default Students;

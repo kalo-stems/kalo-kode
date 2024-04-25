@@ -23,8 +23,8 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 const AddCompany = () => {
 
   // On submit, insert the companyData.
-  const submit = (companyData, formRef) => {
-    const { name, logo, address, email, links, description } = companyData;
+  const submit = (companyProfile, formRef) => {
+    const { name, logo, address, email, links, description } = companyProfile;
     const owner = Meteor.user().username;
     Companies.collection.insert(
       { name, logo, address, email, links, description, owner },
@@ -42,7 +42,7 @@ const AddCompany = () => {
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
   return (
-    <Container className="py-3">
+    <Container id="add-company-page" className="py-3">
       <Row className="justify-content-center">
         <Col xs={8}>
           <Col className="text-center"><h2>Add Company Profile</h2></Col>
