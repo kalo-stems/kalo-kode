@@ -3,11 +3,10 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { NavLink } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown, Button } from 'react-bootstrap';
 import { BoxArrowRight, PersonFill, PersonPlusFill } from 'react-bootstrap-icons';
 
 const NavBar = () => {
-  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { currentUser } = useTracker(() => ({
     currentUser: Meteor.user() ? Meteor.user().username : '',
   }), []);
@@ -38,25 +37,25 @@ const NavBar = () => {
               <NavDropdown id="login-dropdown" title="Login">
                 <NavDropdown.Item id="login-dropdown-sign-in" as={NavLink} to="/signin">
                   <PersonFill />
-                  Sign
-                  in
+                  Sign in
                 </NavDropdown.Item>
                 <NavDropdown.Item id="login-dropdown-sign-up" as={NavLink} to="/signup">
                   <PersonPlusFill />
-                  Sign
-                  up
+                  Sign up
                 </NavDropdown.Item>
               </NavDropdown>
             ) : (
               <NavDropdown id="navbar-current-user" title={currentUser}>
                 <NavDropdown.Item id="navbar-sign-out" as={NavLink} to="/signout">
                   <BoxArrowRight />
-                  {' '}
-                  Sign
-                  out
+                  Sign out
                 </NavDropdown.Item>
               </NavDropdown>
             )}
+            {/* Apply Button */}
+            {currentUser ? (
+              <Button as={NavLink} to="/apply" variant="primary" className="mx-2">Apply</Button>
+            ) : null}
           </Nav>
         </Navbar.Collapse>
       </Container>
