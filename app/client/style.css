@@ -15,6 +15,10 @@
   color: white;
 }
 
+#topHeader {
+  padding-top: 315px;
+}
+
 /* Set up some CSS variables to theme the application. */
 :root {
   --matr-navbar-bg: #6fb879;
