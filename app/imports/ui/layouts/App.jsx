@@ -75,6 +75,7 @@ const ProtectedRoute = ({ children }) => {
  * @param {any} { component: Component, ...rest }
  */
 
+// eslint-disable-next-line react/prop-types
 const AdminProtectedRoute = ({ ready, children }) => {
   const isLogged = Meteor.userId() !== null;
   if (!isLogged) {
