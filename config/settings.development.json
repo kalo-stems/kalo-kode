@@ -24,7 +24,19 @@
 
   "defaultStudents": [
     { "fullName": "Rina Ogino",
-      "image": "",
+      "image": "https://github.com/rinaogino.png",
+      "email": "rin4@hawaii.edu",
+      "phoneNumber": "(808) 222-2222",
+      "major": "B.S. Computer Science",
+      "graduationDate": "May 2025",
+      "skills": "JavaScript, Meteor, HTML, CSS",
+      "awards": "N/A",
+      "description": "I am a undergraduate student studying Computer Science with a minor in Japanese at the University of Hawaii at Manoa. My journey in my academics has been driven by a fascination with numbers and a keen interest in databases, as well as the study of various languages and cultures. Some of my other interests include community involvement, traveling, surfing, and snowboarding. I am expected to graduate in the Spring of 2025.",
+      "linkedIn": "https://www.linkedin.com/in/rinaogino",
+      "gitHub": "https://github.com/rinaogino/"
+    },
+    { "fullName": "Jaira Pader",
+      "image": "https://github.com/rinaogino.png",
       "email": "rin4@hawaii.edu",
       "phoneNumber": "(808) 222-2222",
       "major": "B.S. Computer Science",

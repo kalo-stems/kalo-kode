@@ -72,7 +72,7 @@ const AddStudent = () => {
               <Card.Body>
                 <Row>
                   <Col>
-                    <TextField name="fullName" label="Full Name" />
+                    <TextField name="fullName" label="Full Name (e.g. John Appleseed)" />
                   </Col>
                 </Row>
                 <Row>

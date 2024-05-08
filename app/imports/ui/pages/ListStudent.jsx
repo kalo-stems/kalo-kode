@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row, Table } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Students } from '../../api/student/Student';
@@ -26,31 +26,13 @@ const ListStudent = () => {
   return (ready ? (
     <Container fluid className="py-3">
       <Row className="justify-content-center">
-        <Col md={20}>
+        <Col>
           <Col className="text-center">
             <h2>List Student Profiles</h2>
           </Col>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>Full Name</th>
-                <th>Image</th>
-                <th>Email</th>
-                <th>Phone Number</th>
-                <th>Major</th>
-                <th>Graduation Date</th>
-                <th>Skills</th>
-                <th>Awards</th>
-                <th>Description</th>
-                <th>LinkedIn</th>
-                <th>GitHub</th>
-                <th>Edit</th>
-              </tr>
-            </thead>
-            <tbody>
-              {students.map((student) => <StudentItem key={student._id} student={student} />)}
-            </tbody>
-          </Table>
+          <Row xs={1} md={2} lg={3} className="g-4">
+            {students.map((student) => (<Col key={student._id}><StudentItem student={student} /></Col>))}
+          </Row>
         </Col>
       </Row>
     </Container>
