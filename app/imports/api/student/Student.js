@@ -13,7 +13,8 @@ class StudentProfileCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       fullName: { type: String },
-      image: { type: String, optional: true },
+      image: { type: Array, optional: true },
+      'image.$': { type: String },
       email: { type: String },
       phoneNumber: { type: String },
       major: { type: String },
