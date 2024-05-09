@@ -7,7 +7,7 @@
 
 .nav-link {
   padding: 0rem 1rem 0rem 1rem;
-  color: white;
+  color: white !important;
   font-size: larger;
 }
 
@@ -37,15 +37,19 @@ body {
   color: darkgreen;
 }
 
-#search-button {
-  background-color: var(--matr-navbar-bg);
-  padding: 2px 2px 2px 2px;
-  margin-left: 6px;
-  margin-buttom: 5px;
+#sample-image-1 {
+  width: 100%;
+  border: 5px solid darkgreen;
 }
 
-#search-button {
-  margin-bottom: 5px;
+#sample-image-2 {
+  width: 100%;
+  border: 5px solid darkgreen;
+}
+
+#sample-image-3 {
+  width: 100%;
+  border: 5px solid darkgreen;
 }
 
 footer {

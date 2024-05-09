@@ -6,7 +6,8 @@
 
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "john@foo.com", "password": "changeme", "role": "student" },
+    { "email": "company@foo.com", "password": "changeme", "role": "company" }
   ],
 
   "defaultData": [
@@ -15,8 +16,24 @@
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
+
   "defaultCompanyData": [
     {"name": "KaloStems", "logo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fphilipmjohnson&psig=AOvVaw0AUW32mpADjN5LMNZkwDUs&ust=1712869514546000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCIjSranGuIUDFQAAAAAdAAAAABAE", "address": "Aloha Street", "email": "email.com", "links": "kalostem.com", "description": "this is a description", "owner": "john@foo.com"
+    }
+  ],
+
+  "defaultStudents": [
+    { "fullName": "Rina Ogino",
+      "image": "",
+      "email": "rin4@hawaii.edu",
+      "phoneNumber": "(808) 222-2222",
+      "major": "B.S. Computer Science",
+      "graduationDate": "May 2025",
+      "skills": "JavaScript, Meteor, HTML, CSS",
+      "awards": "N/A",
+      "description": "I am a undergraduate student studying Computer Science with a minor in Japanese at the University of Hawaii at Manoa. My journey in my academics has been driven by a fascination with numbers and a keen interest in databases, as well as the study of various languages and cultures. Some of my other interests include community involvement, traveling, surfing, and snowboarding. I am expected to graduate in the Spring of 2025.",
+      "linkedIn": "https://www.linkedin.com/in/rinaogino",
+      "gitHub": "https://github.com/rinaogino/"
     }
   ],
 
@@ -37,5 +54,28 @@
       "description": "Support multi-disciplinary team in developing designs, schematic sketches/diagrams, and documentation drawings.\nAssist in the preparation of design presentations.\nUtilize BIM software as a tool for design drawings.\nPrepare presentations, including graphic design and PowerPoint.\nEffective teaming within the project team.",
       "requirements": "Familiarity in Revit, Rhino and/or Sketch-up.\nFamiliarity with Photoshop, InDesign, Illustrator and Microsoft Office essential\nGood communication skills and the ability to work effectively with others\nAbility to work in an energetic and challenging work environment\nMust be able to work remotely when necessary.\n\nPlease include a portfolio with your submission.\nEducation and Experience\nWorking toward a BA or BS in Architecture, Bachelor of Architecture, or Master of Architecture degree. Please note: We are looking for someone who is currently pursuing an Architectural degree from an accredited school. If you have already graduated, please check our website for other full-time positions that might be more suitable for you.",
       "wage": "18.45 - 27.12", "company": "Stantec Consulting Services", "deadline": "05/27/2024 at 11:00PM HST", "seats": "1"}
+  ],
+  "defaultCompanyProfiles": [
+    { "name": "KaloStems",
+      "logo": "https://github.com/kalo-stems/kalo-kode/blob/main/doc/KaloStemsCircleLogo.png?raw=true",
+      "address": "UH Manoa",
+      "email": "kalostems@hawaii.edu",
+      "links": "http://209.38.128.154/",
+      "description": "Our platform, Kalo Stems, will allow UH students to connect with career opportunities that are tailored to their interests and skills. Students will be able to specify their background and aspirations, allowing companies to filter and match students who are best fit for their opportunity. Kalo Stems bridges the gap between academia and industry, allowing students long-term professional success."
+    },
+    { "name": "GitHub",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/1200px-GitHub_Invertocat_Logo.svg.png",
+      "address": "San Francisco, CA",
+      "email": "github@github.com",
+      "links": "https://github.com/",
+      "description": "GitHub is a developer platform that allows developers to create, store, manage and share their code. It uses Git software, providing the distributed version control of Git plus access control, bug tracking, software feature requests, task management, continuous integration, and wikis for every project."
+    },
+    { "name": "LinkedIn",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png",
+      "address": "Sunnyvale, CA",
+      "email": "linkedin@linkedin.com",
+      "links": "https://www.linkedin.com/",
+      "description": "LinkedIn is a business and employment-focused social media platform that works through websites and mobile apps. It was launched on May 5, 2003 by Reid Hoffman and Eric Ly. Since December 2016, LinkedIn has been a wholly owned subsidiary of Microsoft. "
+    }
   ]
 }
