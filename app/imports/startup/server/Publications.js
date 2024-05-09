@@ -1,20 +1,20 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Jobs } from '../../api/job/Jobs';
-import { StudentProfile } from '../../api/student/StudentProfile';
-import { CompanyProfile } from '../../api/company/CompanyProfile';
+import { Student } from '../../api/student/Student';
+import { Company } from '../../api/company/Company';
 
 // User-level publication.
 Meteor.publish(Jobs.userPublicationName, function () {
   return Jobs.collection.find();
 });
 
-Meteor.publish(StudentProfile.userPublicationName, function () {
-  return StudentProfile.collection.find();
+Meteor.publish(Student.userPublicationName, function () {
+  return Student.collection.find();
 });
 
-Meteor.publish(CompanyProfile.userPublicationName, function () {
-  return CompanyProfile.collection.find();
+Meteor.publish(Company.userPublicationName, function () {
+  return Company.collection.find();
 });
 
 // Admin-level publication.

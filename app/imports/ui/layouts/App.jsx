@@ -23,6 +23,7 @@ import ListJobs from '../pages/ListJobs';
 import ListStudent from '../pages/ListStudent';
 import ListCompany from '../pages/ListCompany';
 import AboutUs from '../pages/AboutUs';
+import AddJob from '../pages/AddJobs';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -50,6 +51,7 @@ const App = () => {
           <Route path="/add-company" element={<ProtectedRoute><AddCompany /></ProtectedRoute>} />
           <Route path="/edit-company/:_id" element={<ProtectedRoute><EditCompany /></ProtectedRoute>} />
           <Route path="/list-company" element={<ProtectedRoute><ListCompany /></ProtectedRoute>} />
+          <Route path="/add-jobs" element={<ProtectedRoute><AddJob /></ProtectedRoute>} />
           <Route path="/list-jobs" element={<ProtectedRoute><ListJobs /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />

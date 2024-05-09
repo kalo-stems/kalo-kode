@@ -30,4 +30,4 @@ class CompanyProfileCollection {
  * The singleton instance of the CompaniesCollection.
  * @type {CompaniesCollection}
  */
-export const CompanyProfile = new CompanyProfileCollection();
+export const Company = new CompanyProfileCollection();

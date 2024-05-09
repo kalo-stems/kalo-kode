@@ -1,20 +1,20 @@
 import { Meteor } from 'meteor/meteor';
-import { CompanyProfile } from '../../api/company/CompanyProfile';
-import { StudentProfile } from '../../api/student/StudentProfile';
+import { Company } from '../../api/company/Company';
+import { Student } from '../../api/student/Student';
 
-const addCompanyProfileMethod = 'CompanyProfile.addProfile';
+const addCompanyProfileMethod = 'Company.addProfile';
 Meteor.methods({
   'CompanyProfile.add'({ company, email, address, links, description }) {
-    CompanyProfile.collection.insert({ company, email, address, links, description });
+    Company.collection.insert({ company, email, address, links, description });
   },
 
 });
 
-const addStudentProfileMethod = 'StudentProfile.addProfile';
+const addStudentProfileMethod = 'Student.addProfile';
 
 Meteor.methods({
   'StudentProfile.add'({ email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub }) {
-    StudentProfile.collection.insert({ email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub });
+    Student.collection.insert({ email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub });
   },
 
 });

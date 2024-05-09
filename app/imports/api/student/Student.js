@@ -32,4 +32,4 @@ class StudentProfileCollection {
   }
 }
 
-export const StudentProfile = new StudentProfileCollection();
+export const Student = new StudentProfileCollection();

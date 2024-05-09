@@ -7,9 +7,9 @@ import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useParams } from 'react-router';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { StudentProfile } from '../../api/student/StudentProfile';
+import { Student } from '../../api/student/Student';
 
-const bridge = new SimpleSchema2Bridge(StudentProfile.schema);
+const bridge = new SimpleSchema2Bridge(Student.schema);
 
 /* Renders the EditStudent page for editing a single document. */
 const EditStudent = () => {
@@ -20,11 +20,11 @@ const EditStudent = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { doc, ready } = useTracker(() => {
     // Get access to Student documents.
-    const subscription = Meteor.subscribe(StudentProfile.userPublicationName);
+    const subscription = Meteor.subscribe(Student.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the document
-    const document = StudentProfile.collection.findOne(_id);
+    const document = Student.collection.findOne(_id);
     return {
       doc: document,
       ready: rdy,
@@ -34,7 +34,7 @@ const EditStudent = () => {
   // On successful submit, insert the data.
   const submit = (data) => {
     const { email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } = data;
-    StudentProfile.collection.update(_id, { $set: { email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } }, (error) => (error ?
+    Student.collection.update(_id, { $set: { email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };
