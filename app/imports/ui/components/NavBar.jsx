@@ -16,7 +16,6 @@ const NavBar = () => {
     <Navbar bg="light" expand="lg">
       <Container className="justify-content-left">
         <Nav className="mx-auto">
-          <Nav.Link className="active border-3">Our Mission</Nav.Link>
           <Nav.Link id="aboutus-nav" as={NavLink} to="/about-us" key="about">About Us</Nav.Link>
         </Nav>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
