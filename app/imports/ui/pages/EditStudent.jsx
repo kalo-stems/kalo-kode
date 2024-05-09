@@ -7,9 +7,8 @@ import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useParams } from 'react-router';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { Student } from '../../api/student/Student';
 
-const bridge = new SimpleSchema2Bridge(Student.schema);
+const bridge = new SimpleSchema2Bridge(Students.schema);
 
 /* Renders the EditStudent page for editing a single document. */
 const EditStudent = () => {
@@ -19,12 +18,12 @@ const EditStudent = () => {
   // console.log('EditStudent', _id);
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { doc, ready } = useTracker(() => {
-    // Get access to Student documents.
-    const subscription = Meteor.subscribe(Student.userPublicationName);
+    // Get access to Students documents.
+    const subscription = Meteor.subscribe(Students.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the document
-    const document = Student.collection.findOne(_id);
+    const document = Students.collection.findOne(_id);
     return {
       doc: document,
       ready: rdy,
@@ -33,10 +32,29 @@ const EditStudent = () => {
   // console.log('EditStudent', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } = data;
-    Student.collection.update(_id, { $set: { email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } }, (error) => (error ?
-      swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')));
+    const { fullName, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } = data;
+    const imageArray = selectedImage ? [selectedImage] : ['/images/meteor-logo.png'];
+    Students.collection.update(_id, {
+      $set: {
+        fullName,
+        image: imageArray,
+        email,
+        phoneNumber,
+        major,
+        graduationDate,
+        skills,
+        awards,
+        description,
+        linkedIn,
+        gitHub,
+      },
+    }, (error) => {
+      if (error) {
+        swal('Error', error.message, 'error');
+      } else {
+        swal('Success', 'Information updated successfully', 'success');
+      }
+    });
   };
 
   const handleFileUpload = (e) => {
@@ -69,9 +87,9 @@ const EditStudent = () => {
                 </Row>
                 <Row>
                   {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-                  <label>Image: </label>
+                  <label>Image </label>
                   <input type="file" onChange={handleFileUpload} accept="image/*" />
-                  {selectedImage && <img src={selectedImage} alt="Selected" style={{ maxWidth: '100%', maxHeight: '200px' }} />}
+                  {selectedImage && <img src={selectedImage} alt="Selected" style={{ maxWidth: '100%', maxHeight: '300px' }} />}
                 </Row>
                 <Row style={{ height: '20px' }} />
                 <Row>

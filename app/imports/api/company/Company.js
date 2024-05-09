@@ -4,19 +4,21 @@ import SimpleSchema from 'simpl-schema';
 /**
  * The CompaniesCollection. It encapsulates state and variable values for company.
  */
-class CompanyProfileCollection {
+class CompaniesCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'CompanyProfileCollection';
+    this.name = 'CompaniesCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      company: { type: String, optional: true },
-      email: { type: String, index: true, unique: true },
-      address: { type: String, optional: true },
-      links: { type: String, optional: true },
-      description: { type: String, optional: true },
+      name: String,
+      logo: Array,
+      'logo.$': { type: String },
+      address: String,
+      email: String,
+      links: String,
+      description: String,
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
@@ -30,4 +32,4 @@ class CompanyProfileCollection {
  * The singleton instance of the CompaniesCollection.
  * @type {CompaniesCollection}
  */
-export const Company = new CompanyProfileCollection();
+export const Companies = new CompaniesCollection();

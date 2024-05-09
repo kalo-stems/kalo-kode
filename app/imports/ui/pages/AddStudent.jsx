@@ -5,12 +5,13 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { addStudentProfileMethod } from '../../startup/both/Methods';
+import { Navigate } from 'react-router-dom';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   fullName: String,
-  image: Object,
+  image: { type: Array, optional: true },
+  'image.$': { type: String, optional: true },
   email: String,
   phoneNumber: String,
   major: String,
@@ -27,13 +28,16 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 /* Renders the AddStudent page for adding a document. */
 const AddStudent = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [route, setRoute] = useState('');
+  const [redirect, setRedirect] = useState(false);
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { fullName, image, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } = data;
+    const { fullName, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } = data;
     const owner = Meteor.user().username;
-    addStudentProfileMethod.collection.insert(
-      { fullName, image, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub, owner },
+    const imageArray = selectedImage ? [selectedImage] : ['/images/meteor-mongo.png'];
+    const newRoute = Students.collection.insert(
+      { fullName, image: imageArray, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -43,6 +47,8 @@ const AddStudent = () => {
         }
       },
     );
+    setRoute(newRoute);
+    setRedirect(true);
   };
 
   const handleFileUpload = (e) => {
@@ -62,7 +68,7 @@ const AddStudent = () => {
 
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
-  return (
+  return redirect ? (<Navigate to={`/student/${route}`} />) : (
     <Container id="add-student-page" className="py-3">
       <Row className="justify-content-center">
         <Col xs={8}>
@@ -77,9 +83,9 @@ const AddStudent = () => {
                 </Row>
                 <Row>
                   {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-                  <label>Image: </label>
+                  <label>Image </label>
                   <input type="file" onChange={handleFileUpload} accept="image/*" />
-                  {selectedImage && <img src={selectedImage} alt="Selected" style={{ maxWidth: '100%', maxHeight: '200px' }} />}
+                  {selectedImage && <img src={selectedImage} alt="Selected" style={{ maxWidth: '100%', maxHeight: '300px' }} />}
                 </Row>
                 <Row style={{ height: '20px' }} />
                 <Row>
@@ -87,7 +93,7 @@ const AddStudent = () => {
                     <TextField name="email" />
                   </Col>
                   <Col>
-                    <TextField name="phoneNumber" label="Phone Number" />
+                    <TextField name="phoneNumber" label="Phone Number e.g. (XXX) XXX-XXXX" />
                   </Col>
                 </Row>
                 <Row>
@@ -100,7 +106,7 @@ const AddStudent = () => {
                 </Row>
                 <TextField name="skills" />
                 <TextField name="awards" />
-                <LongTextField name="description" />
+                <LongTextField name="description" placeholder="Tell us about yourself in approximately 100 words" />
                 <Row>
                   <Col>
                     <TextField name="linkedIn" label="LinkedIn" />
