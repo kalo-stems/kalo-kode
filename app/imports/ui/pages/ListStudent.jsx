@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { Students } from '../../api/student/Student';
+import { StudentProfile } from '../../api/student/StudentProfile';
 import StudentItem from '../components/StudentItem';
 
 /* Renders a table containing all of the Students documents. Use <StudentItem> to render each row. */
@@ -13,11 +13,11 @@ const ListStudent = () => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Students documents.
-    const subscription = Meteor.subscribe(Students.userPublicationName);
+    const subscription = Meteor.subscribe(StudentProfile.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Students documents
-    const studentItems = Students.collection.find({}).fetch();
+    const studentItems = StudentProfile.collection.find({}).fetch();
     return {
       students: studentItems,
       ready: rdy,
