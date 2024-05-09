@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Companies } from '../../api/company/Company';
 import { Students } from '../../api/student/Student';
+import { Jobs } from '../../api/job/Jobs';
 
 /* eslint-disable no-console */
 
@@ -11,10 +12,11 @@ const addData = (data) => {
 };
 
 // Initialize the collection if empty.
-if (Companies.collection.find().count() === 0) {
-  if (Meteor.settings.defaultData && Meteor.settings.defaultData.CompanyData) {
+
+if (Jobs.collection.find().count() === 0) {
+  if (Meteor.settings.defaultData && Meteor.settings.defaultData.JobData) {
     console.log('Creating default data.');
-    Meteor.settings.defaultData.CompanyData.forEach(data => addData(data));
+    Meteor.settings.defaultData.JobData.forEach(data => addData(data));
   } else {
     console.log('Cannot initialize the database! Please provide default data in your settings file.');
   }
@@ -26,6 +28,18 @@ if (Students.collection.find().count() === 0) {
     Meteor.settings.defaultData.StudentData.forEach(data => addData(data));
   } else {
     console.log('Cannot initialize the database! Please provide default data in your settings file.');
+  }
+}
+
+const addJob = (job) => {
+  console.log(`  Adding: ${job.name}`);
+  Jobs.collection.insert(job);
+};
+
+if (Jobs.collection.find().count() === 0) {
+  if (Meteor.settings.defaultData && Meteor.settings.defaultData.JobData) {
+    console.log('Creating default company.');
+    Meteor.settings.defaultData.JobData.forEach(company => addJob(company));
   }
 }
 
@@ -54,6 +68,19 @@ if (Students.collection.find().count() === 0) {
 }
 
 // Initialize the database with a default Company Profile data document.
+const addJobProfile = (jobProfile) => {
+  console.log(`  Adding: ${jobProfile.name} (${jobProfile.owner})`);
+  Jobs.collection.insert(jobProfile);
+};
+
+// Initialize the collection if empty.
+if (Jobs.collection.find().count() === 0) {
+  if (Meteor.settings.defaultJobs) {
+    console.log('Creating default Job data.');
+    Meteor.settings.defaultJobs.forEach(jobProfile => addJobProfile(jobProfile));
+  }
+}
+
 const addCompanyProfile = (companyProfile) => {
   console.log(`  Adding: ${companyProfile.name} (${companyProfile.owner})`);
   Companies.collection.insert(companyProfile);
