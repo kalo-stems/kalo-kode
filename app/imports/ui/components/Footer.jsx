@@ -13,6 +13,7 @@ const Footer = () => (
             Emily Hsu, Samantha Kocher, Roma Malasarte,
             <br />
             Rina Ogino, Jaira Pader, Natalie Dang
+            <br />
           </Row>
           <br />
         </Col>
@@ -32,6 +33,8 @@ const Footer = () => (
             <a style={{ color: 'white' }} href="https://kalo-stems.github.io/">https://kalo-stems.github.io/</a>
             <br />
             <a style={{ color: 'white' }} href="https://docs.google.com/forms/d/e/1FAIpQLSe2SBh4m5ZspDTEs6nUZX3oFsPsw_8W-QFEuCeRV7GaNbes3g/viewform?usp=pp_url">Feedback Form</a>
+            <br />
+            <a style={{ color: 'white' }} href="https://github.com/kalo-stems">Our GitHub Organization</a>
           </Row>
         </Col>
       </Row>
