@@ -11,8 +11,8 @@ import { Students } from '../../api/student/Student';
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   fullName: String,
-  image: Array,
-  'image.$': String,
+  image: { type: Array, optional: true },
+  'image.$': { type: String, optional: true },
   email: String,
   phoneNumber: String,
   major: String,
@@ -84,7 +84,7 @@ const AddStudent = () => {
                 </Row>
                 <Row>
                   {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-                  <label>Image: </label>
+                  <label>Image </label>
                   <input type="file" onChange={handleFileUpload} accept="image/*" />
                   {selectedImage && <img src={selectedImage} alt="Selected" style={{ maxWidth: '100%', maxHeight: '300px' }} />}
                 </Row>
