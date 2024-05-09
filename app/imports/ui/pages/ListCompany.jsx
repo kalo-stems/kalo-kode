@@ -2,9 +2,9 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Companies } from '../../api/company/Company';
 import CompanyItem from '../components/CompanyItem';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { CompanyProfile } from '../../api/company/CompanyProfile';
 
 /* Renders a table containing all the Company documents. Use <CompanyItem> to render each row. */
 const ListCompany = () => {
@@ -13,11 +13,11 @@ const ListCompany = () => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Company documents.
-    const subscription = Meteor.subscribe(Companies.userPublicationName);
+    const subscription = Meteor.subscribe(CompanyProfile.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Company documents
-    const companyItems = Companies.collection.find({}).fetch();
+    const companyItems = CompanyProfile.collection.find({}).fetch();
     return {
       companies: companyItems,
       ready: rdy,

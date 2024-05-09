@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { Companies } from '../../api/company/Company';
+import { addCompanyProfileMethod } from '../../startup/both/Methods';
 
 // Create a schema to specify the structure of the companyData to appear in the form.
 const formSchema = new SimpleSchema({
@@ -26,7 +26,7 @@ const AddCompany = () => {
   const submit = (companyProfile, formRef) => {
     const { name, logo, address, email, links, description } = companyProfile;
     const owner = Meteor.user().username;
-    Companies.collection.insert(
+    addCompanyProfileMethod.collection.insert(
       { name, logo, address, email, links, description, owner },
       (error) => {
         if (error) {
