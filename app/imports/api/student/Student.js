@@ -4,10 +4,10 @@ import SimpleSchema from 'simpl-schema';
 /**
  * The StudentsCollection. It encapsulates state and variable values for student.
  */
-class StudentProfileCollection {
+class StudentsCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'StudentProfileCollection';
+    this.name = 'StudentsCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
@@ -33,4 +33,8 @@ class StudentProfileCollection {
   }
 }
 
-export const Student = new StudentProfileCollection();
+/**
+ * The singleton instance of the StudentsCollection.
+ * @type {StudentsCollection}
+ */
+export const Students = new StudentsCollection();

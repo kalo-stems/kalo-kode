@@ -7,9 +7,9 @@ import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useParams } from 'react-router';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { Student } from '../../api/student/Student';
+import { Students } from '../../api/student/Student';
 
-const bridge = new SimpleSchema2Bridge(Student.schema);
+const bridge = new SimpleSchema2Bridge(Students.schema);
 
 /* Renders the EditStudent page for editing a single document. */
 const EditStudent = () => {
@@ -20,11 +20,11 @@ const EditStudent = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { doc, ready } = useTracker(() => {
     // Get access to Students documents.
-    const subscription = Meteor.subscribe(Student.userPublicationName);
+    const subscription = Meteor.subscribe(Students.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the document
-    const document = Student.collection.findOne(_id);
+    const document = Students.collection.findOne(_id);
     return {
       doc: document,
       ready: rdy,
@@ -35,7 +35,7 @@ const EditStudent = () => {
   const submit = (data) => {
     const { fullName, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } = data;
     const imageArray = selectedImage ? [selectedImage] : ['/images/meteor-logo.png'];
-    Student.collection.update(_id, {
+    Students.collection.update(_id, {
       $set: {
         fullName,
         image: imageArray,
