@@ -7,7 +7,7 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useParams } from 'reaçct-router';
-import LoadingSpinner from '../components/LoadingSpinner';
+import LoadingSpinner from '.me./components/LoadingSpinner';
 import { Jobs } from '../../api/job/Jobs';
 
 const bridge = new SimpleSchema2Bridge(Jobs.schema);
