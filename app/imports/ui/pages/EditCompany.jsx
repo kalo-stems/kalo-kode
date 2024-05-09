@@ -7,9 +7,9 @@ import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useParams } from 'react-router';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { Companies } from '../../api/company/CompanyProfile';
+import { CompanyProfile } from '../../api/company/CompanyProfile';
 
-const bridge = new SimpleSchema2Bridge(Companies.schema);
+const bridge = new SimpleSchema2Bridge(CompanyProfile.schema);
 
 /* Renders the EditCompany page for editing a single document. */
 const EditCompany = () => {
@@ -19,11 +19,11 @@ const EditCompany = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { doc, ready } = useTracker(() => {
     // Get access to Company documents.
-    const subscription = Meteor.subscribe(Companies.userPublicationName);
+    const subscription = Meteor.subscribe(CompanyProfile.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the document
-    const document = Companies.collection.findOne(_id);
+    const document = CompanyProfile.collection.findOne(_id);
     return {
       doc: document,
       ready: rdy,
@@ -33,7 +33,7 @@ const EditCompany = () => {
   // On successful submit, insert the data.
   const submit = (data) => {
     const { name, logo, address, email, links, description } = data;
-    Companies.collection.update(_id, { $set: { name, logo, address, email, links, description } }, (error) => (error ?
+    CompanyProfile.collection.update(_id, { $set: { name, logo, address, email, links, description } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };

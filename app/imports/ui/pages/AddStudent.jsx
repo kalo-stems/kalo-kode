@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { Students } from '../../api/student/StudentProfile';
+import { addStudentProfileMethod } from '../../startup/both/Methods';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -29,7 +29,7 @@ const AddStudent = () => {
   const submit = (data, formRef) => {
     const { email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } = data;
     const owner = Meteor.user().username;
-    Students.collection.insert(
+    addStudentProfileMethod.collection.insert(
       { email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub, owner },
       (error) => {
         if (error) {
