@@ -26,6 +26,22 @@ Meteor.publish(Jobs.adminPublicationName, function () {
   return this.ready();
 });
 
+Meteor.publish(Students.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Students.collection.find();
+  }
+  // Return an empty cursor if the user is not logged in or not an admin.
+  return this.ready();
+});
+
+Meteor.publish(Companies.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Companies.collection.find();
+  }
+  // Return an empty cursor if the user is not logged in or not an admin.
+  return this.ready();
+});
+
 // alanning:roles publication
 Meteor.publish(null, function () {
   if (this.userId) {

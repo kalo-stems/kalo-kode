@@ -10,11 +10,20 @@ const addData = (data) => {
   Companies.collection.insert(data);
 };
 
-// Initialize the Company collection if empty.
+// Initialize the collection if empty.
 if (Companies.collection.find().count() === 0) {
   if (Meteor.settings.defaultData && Meteor.settings.defaultData.CompanyData) {
     console.log('Creating default data.');
     Meteor.settings.defaultData.CompanyData.forEach(data => addData(data));
+  } else {
+    console.log('Cannot initialize the database! Please provide default data in your settings file.');
+  }
+}
+
+if (Students.collection.find().count() === 0) {
+  if (Meteor.settings.defaultData && Meteor.settings.defaultData.StudentData) {
+    console.log('Creating default data.');
+    Meteor.settings.defaultData.StudentData.forEach(data => addData(data));
   } else {
     console.log('Cannot initialize the database! Please provide default data in your settings file.');
   }
@@ -55,5 +64,18 @@ if (Companies.collection.find().count() === 0) {
   if (Meteor.settings.defaultCompanyProfiles) {
     console.log('Creating default Company Profiles data.');
     Meteor.settings.defaultCompanyProfiles.forEach(companyProfile => addCompanyProfile(companyProfile));
+  }
+}
+
+const addStudentProfile = (studentProfile) => {
+  console.log(`  Adding: ${studentProfile.name} (${studentProfile.owner})`);
+  Students.collection.insert(studentProfile);
+};
+
+// Initialize the CompaniesCollection if empty.
+if (Students.collection.find().count() === 0) {
+  if (Meteor.settings.defaultStudentProfiles) {
+    console.log('Creating default Student Profiles data.');
+    Meteor.settings.defaultStudentProfiles.forEach(studentProfile => addStudentProfile(studentProfile));
   }
 }
