@@ -47,11 +47,15 @@ const AboutUs = () => (
         <h3>Natalie Dang</h3>
       </Col>
     </Row>
+    <br />
+    <br />
     <Row>
       {/* eslint-disable-next-line max-len */}
-      <h6>Kalo Stems is based upon meteor-application-template-react and meteor-example-form-react. Please use the videos and documentation at those sites to better acquaint yourself with the basic application design and form processing in Kalo Stems.
+      <h6>Kalo Stems is based upon meteor-application-template-react and meteor-example-form-react. Please use the videos and documentation at those sites to better acquaint yourself with the basic application design and form processing in
+        Kalo Stems.
       </h6>
     </Row>
+    <br />
   </Container>
 );
 export default AboutUs;
