@@ -6,6 +6,7 @@ import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Navigate } from 'react-router-dom';
+import { Student } from '../../api/student/Student';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -36,7 +37,7 @@ const AddStudent = () => {
     const { fullName, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } = data;
     const owner = Meteor.user().username;
     const imageArray = selectedImage ? [selectedImage] : ['/images/meteor-mongo.png'];
-    const newRoute = Students.collection.insert(
+    const newRoute = Student.collection.insert(
       { fullName, image: imageArray, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub, owner },
       (error) => {
         if (error) {
