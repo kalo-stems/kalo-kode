@@ -15,9 +15,9 @@
   color: white;
 }
 
-#topHeader {
-  padding-top: 315px;
-}
+/*#topHeader {*/
+/*  padding-top: 315px;*/
+/*}*/
 
 /* Set up some CSS variables to theme the application. */
 :root {
@@ -30,6 +30,8 @@
  */
 body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
+  background: url("/images/background.png") center fixed;
+  background-size: cover;
 }
 
 #background {
@@ -42,17 +44,17 @@ body {
 }
 
 #sample-image-1 {
-  width: 100%;
+  width: 60%;
   border: 5px solid darkgreen;
 }
 
 #sample-image-2 {
-  width: 100%;
+  width: 60%;
   border: 5px solid darkgreen;
 }
 
 #sample-image-3 {
-  width: 100%;
+  width: 60%;
   border: 5px solid darkgreen;
 }
 
