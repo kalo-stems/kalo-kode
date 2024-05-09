@@ -1,60 +1,57 @@
 import { Meteor } from 'meteor/meteor';
-import { Stuffs } from '../../api/stuff/Stuff.js';
-import { Jobs } from '../../api/job/Jobs';
-import { Students } from '../../api/student/Student';
+import { Company } from '../../api/company/Company';
+import { Student } from '../../api/student/Student';
 
-import { Companies } from '../../api/company/Company';
 /* eslint-disable no-console */
 
 // Initialize the database with a default data document.
 const addData = (data) => {
   console.log(`  Adding: ${data.name} (${data.owner})`);
-  Stuffs.collection.insert(data);
+  Company.collection.insert(data);
 };
 
-// Initialize the StuffsCollection if empty.
-if (Stuffs.collection.find().count() === 0) {
-  if (Meteor.settings.defaultData) {
+// Initialize the Company collection if empty.
+if (Company.collection.find().count() === 0) {
+  if (Meteor.settings.defaultData && Meteor.settings.defaultData.CompanyData) {
     console.log('Creating default data.');
-    Meteor.settings.defaultData.forEach(data => addData(data));
+    Meteor.settings.defaultData.CompanyData.forEach(data => addData(data));
+  } else {
+    console.log('Cannot initialize the database! Please provide default data in your settings file.');
   }
 }
 
-const addStudents = (student) => {
-  console.log(`  Adding: ${student.fullName} (${student.owner})`);
-  Students.collection.insert(student);
+const addCompany = (company) => {
+  console.log(`  Adding: ${company.name}`);
+  Company.collection.insert(company);
 };
 
-// Initialize the StudentsCollection if empty.
-if (Students.collection.find().count() === 0) {
-  if (Meteor.settings.defaultStudents) {
-    console.log('Creating default data.');
-    Meteor.settings.defaultStudents.forEach(student => addStudents(student));
+if (Company.collection.find().count() === 0) {
+  if (Meteor.settings.defaultData && Meteor.settings.defaultData.CompanyData) {
+    console.log('Creating default company.');
+    Meteor.settings.defaultData.CompanyData.forEach(company => addCompany(company));
   }
 }
 
-// Initialize the Jobs database with a default job data document.
-const addJobs = (job) => {
-  console.log(`  Adding: ${job.title} (INSERT COMPANY NAME)`);
-  Jobs.collection.insert(job);
+const addStudent = (student) => {
+  console.log(`  Adding: ${student.name}`);
+  Student.collection.insert(student);
 };
 
-// Initialize the JobsCollection if empty.
-if (Jobs.collection.find().count() === 0) {
-  if (Meteor.settings.defaultJobs) {
-    console.log('Creating default jobs.');
-    Meteor.settings.defaultJobs.forEach(job => addJobs(job));
+if (Student.collection.find().count() === 0) {
+  if (Meteor.settings.defaultData && Meteor.settings.defaultData.StudentData) {
+    console.log('Creating default student.');
+    Meteor.settings.defaultData.StudentData.forEach(student => addStudent(student));
   }
 }
 
 // Initialize the database with a default Company Profile data document.
 const addCompanyProfile = (companyProfile) => {
   console.log(`  Adding: ${companyProfile.name} (${companyProfile.owner})`);
-  Companies.collection.insert(companyProfile);
+  Company.collection.insert(companyProfile);
 };
 
 // Initialize the CompaniesCollection if empty.
-if (Companies.collection.find().count() === 0) {
+if (Company.collection.find().count() === 0) {
   if (Meteor.settings.defaultCompanyProfiles) {
     console.log('Creating default Company Profiles data.');
     Meteor.settings.defaultCompanyProfiles.forEach(companyProfile => addCompanyProfile(companyProfile));

@@ -1,81 +1,37 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
-import { Stuffs } from '../../api/stuff/Stuff';
 import { Jobs } from '../../api/job/Jobs';
-import { Students } from '../../api/student/Student';
-import { Companies } from '../../api/company/Company';
+import { Student } from '../../api/student/Student';
+import { Company } from '../../api/company/Company';
 
 // User-level publication.
-// If logged in, then publish documents owned by this user. Otherwise, publish nothing.
-Meteor.publish(Stuffs.userPublicationName, function () {
-  if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Stuffs.collection.find({ owner: username });
-  }
-  return this.ready();
+Meteor.publish(Jobs.userPublicationName, function () {
+  return Jobs.collection.find();
+});
+
+Meteor.publish(Student.userPublicationName, function () {
+  return Student.collection.find();
+});
+
+Meteor.publish(Company.userPublicationName, function () {
+  return Company.collection.find();
 });
 
 // Admin-level publication.
-// If logged in and with admin role, then publish all documents from all users. Otherwise, publish nothing.
-Meteor.publish(Stuffs.adminPublicationName, function () {
-  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Stuffs.collection.find();
-  }
-  return this.ready();
-});
-
-Meteor.publish(Students.userPublicationName, function () {
-  if (this.userId) {
-    // const username = Meteor.users.findOne(this.userId).username;
-    return Students.collection.find();
-  }
-  return this.ready();
-});
-
-Meteor.publish(Students.adminPublicationName, function () {
-  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Students.collection.find();
-  }
-  return this.ready();
-});
-
-// Companies-level publication.
-// If logged in as a company, then publish documents owned by this user. Otherwise, publish nothing.
-Meteor.publish(Companies.userPublicationName, function () {
-  if (this.userId) {
-    // const username = Meteor.users.findOne(this.userId).username;
-    return Companies.collection.find();
-  }
-  return this.ready();
-});
-
-Meteor.publish(Companies.adminPublicationName, function () {
-  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Companies.collection.find();
-  }
-  return this.ready();
-});
-
-Meteor.publish(Jobs.userPublicationName, function () {
-  if (this.userId) {
-    // const username = Meteor.users.findOne(this.userId).username;
-    return Jobs.collection.find();
-  }
-  return this.ready();
-});
-
 Meteor.publish(Jobs.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Jobs.collection.find();
   }
+  // Return an empty cursor if the user is not logged in or not an admin.
   return this.ready();
 });
 
 // alanning:roles publication
-// Recommended code to publish roles for each user.
 Meteor.publish(null, function () {
   if (this.userId) {
+    // Publish roles for the current user.
     return Meteor.roleAssignment.find({ 'user._id': this.userId });
   }
+  // Return an empty cursor if the user is not logged in.
   return this.ready();
 });

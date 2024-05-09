@@ -7,9 +7,9 @@ import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useParams } from 'react-router';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { Students } from '../../api/student/Student';
+import { Student } from '../../api/student/Student';
 
-const bridge = new SimpleSchema2Bridge(Students.schema);
+const bridge = new SimpleSchema2Bridge(Student.schema);
 
 /* Renders the EditStudent page for editing a single document. */
 const EditStudent = () => {
@@ -19,12 +19,12 @@ const EditStudent = () => {
   // console.log('EditStudent', _id);
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { doc, ready } = useTracker(() => {
-    // Get access to Students documents.
-    const subscription = Meteor.subscribe(Students.userPublicationName);
+    // Get access to Student documents.
+    const subscription = Meteor.subscribe(Student.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the document
-    const document = Students.collection.findOne(_id);
+    const document = Student.collection.findOne(_id);
     return {
       doc: document,
       ready: rdy,
@@ -33,8 +33,8 @@ const EditStudent = () => {
   // console.log('EditStudent', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { fullName, image, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } = data;
-    Students.collection.update(_id, { $set: { fullName, image, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } }, (error) => (error ?
+    const { email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } = data;
+    Student.collection.update(_id, { $set: { email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };
