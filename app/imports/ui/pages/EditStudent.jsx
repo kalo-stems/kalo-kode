@@ -33,10 +33,29 @@ const EditStudent = () => {
   // console.log('EditStudent', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { fullName, image, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } = data;
-    Students.collection.update(_id, { $set: { fullName, image, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } }, (error) => (error ?
-      swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')));
+    const { fullName, email, phoneNumber, major, graduationDate, skills, awards, description, linkedIn, gitHub } = data;
+    const imageArray = selectedImage ? [selectedImage] : ['/images/meteor-logo.png'];
+    Students.collection.update(_id, {
+      $set: {
+        fullName,
+        image: imageArray,
+        email,
+        phoneNumber,
+        major,
+        graduationDate,
+        skills,
+        awards,
+        description,
+        linkedIn,
+        gitHub,
+      },
+    }, (error) => {
+      if (error) {
+        swal('Error', error.message, 'error');
+      } else {
+        swal('Success', 'Information updated successfully', 'success');
+      }
+    });
   };
 
   const handleFileUpload = (e) => {
@@ -69,9 +88,9 @@ const EditStudent = () => {
                 </Row>
                 <Row>
                   {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-                  <label>Image: </label>
+                  <label>Image </label>
                   <input type="file" onChange={handleFileUpload} accept="image/*" />
-                  {selectedImage && <img src={selectedImage} alt="Selected" style={{ maxWidth: '100%', maxHeight: '200px' }} />}
+                  {selectedImage && <img src={selectedImage} alt="Selected" style={{ maxWidth: '100%', maxHeight: '300px' }} />}
                 </Row>
                 <Row style={{ height: '20px' }} />
                 <Row>

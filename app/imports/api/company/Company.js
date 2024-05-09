@@ -13,7 +13,8 @@ class CompaniesCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       name: String,
-      logo: String,
+      logo: Array,
+      'logo.$': { type: String },
       address: String,
       email: String,
       links: String,
