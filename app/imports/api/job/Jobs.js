@@ -28,7 +28,6 @@ class JobsCollection {
   }
 }
 
-
 /**
  * The singleton instance of the JobsCollection.
  * @type {JobsCollection}
